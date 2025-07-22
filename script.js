@@ -154,7 +154,7 @@ function renderAllPages() {
             <div class="space-y-4">
                 <input id="meal-url-input" type="text" placeholder="Paste a recipe URL" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
                 <div class="relative"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-card"></div></div><div class="relative flex justify-center"><span class="bg-card px-2 text-sm text-sub">OR</span></div></div>
-                <textarea id="meal-ingredients-input" placeholder="List ingredients and quantities..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <textarea id="meal-ingredients-input" placeholder="List ingredients and quantities one per line..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
                 <button id="analyze-meal-btn" class="btn-primary w-full flex items-center justify-center"><i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i>Analyze Meal</button>
             </div>
             <div id="meal-output" class="mt-8"></div>
@@ -335,6 +335,64 @@ function setupSettingsLogic() {
     }
 }
 
+/**
+ * Parses a nutrient string (e.g., "25g", "100mg", "5.5") into a number.
+ * @param {string | number} value The nutrient value to parse.
+ * @returns {number} The parsed numeric value, or 0 if invalid.
+ */
+function parseNutrientValue(value) {
+    if (typeof value === 'number') {
+        return value;
+    }
+    if (typeof value === 'string') {
+        const parsed = parseFloat(value);
+        return isNaN(parsed) ? 0 : parsed;
+    }
+    return 0;
+}
+
+/**
+ * Sums up the nutritional data from an array of individual food items.
+ * @param {Array<Object>} nutritionResults Array of nutrition data objects from the API.
+ * @returns {Object} An aggregated nutrition object.
+ */
+function sumNutritionData(nutritionResults) {
+    const total = {
+        calories: 0, totalFat: 0, saturatedFat: 0, transFat: 0, cholesterol: 0,
+        sodium: 0, totalCarbohydrate: 0, dietaryFiber: 0, totalSugars: 0,
+        protein: 0, vitaminD: 0, calcium: 0, iron: 0, potassium: 0
+    };
+
+    nutritionResults.forEach(result => {
+        if (result && typeof result === 'object') {
+            for (const key in total) {
+                total[key] += parseNutrientValue(result[key]);
+            }
+        }
+    });
+
+    // Format the summed values back into strings with units
+    return {
+        foodItem: "Total Meal Nutrition",
+        servingSize: "1 serving",
+        calories: total.calories.toFixed(0),
+        totalFat: `${total.totalFat.toFixed(1)}g`,
+        saturatedFat: `${total.saturatedFat.toFixed(1)}g`,
+        transFat: `${total.transFat.toFixed(1)}g`,
+        cholesterol: `${total.cholesterol.toFixed(0)}mg`,
+        sodium: `${total.sodium.toFixed(0)}mg`,
+        totalCarbohydrate: `${total.totalCarbohydrate.toFixed(1)}g`,
+        dietaryFiber: `${total.dietaryFiber.toFixed(1)}g`,
+        totalSugars: `${total.totalSugars.toFixed(1)}g`,
+        protein: `${total.protein.toFixed(1)}g`,
+        vitaminD: `${total.vitaminD.toFixed(0)}mcg`,
+        calcium: `${total.calcium.toFixed(0)}mg`,
+        iron: `${total.iron.toFixed(1)}mg`,
+        potassium: `${total.potassium.toFixed(0)}mg`,
+    };
+}
+
+
 function setupFeatureLogic() {
     const calculators = [
         { id: 'bmi', name: 'BMI ', icon: 'ruler', fields: [{id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}], func: 'calculateBMI' },
@@ -416,93 +474,106 @@ function setupFeatureLogic() {
     const mealOutput = document.getElementById('meal-output');
     analyzeMealBtn.addEventListener('click', async () => {
         const url = document.getElementById('meal-url-input').value.trim();
-        const ingredients = document.getElementById('meal-ingredients-input').value.trim();
-        if (!url && !ingredients) return;
-
-        setLoadingState(analyzeMealBtn, true, 'Analyzing Nutrition...');
-        mealOutput.innerHTML = getSkeletonHTML('meal'); // Show skeleton for nutrition label
-
-        const mealInput = url ? `URL: ${url}` : `Ingredients: ${ingredients}`;
-
-        // --- Step 1: Fetch Nutrition Data ---
-        const nutritionPrompt = `You are a nutrition calculator. Analyze the total combined nutrition for the following list of ingredients: "${mealInput}". Sum up all the values. Return ONLY a single JSON object with a key "nutrition". The value should be an object containing the aggregated nutritional values for the entire meal. The required keys are: foodItem (use a summary like "Combined Meal"), servingSize (e.g., "1 serving"), calories (number), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for unknown values. For example: { "nutrition": { "calories": 550, "protein": "30g", ... } }`;
+        const ingredientsText = document.getElementById('meal-ingredients-input').value.trim();
         
-        const nutritionResult = await callGeminiApi(nutritionPrompt, 'meal');
-        let nutritionData;
+        let ingredientsList;
+        let originalMealInput;
 
-        if (nutritionResult) {
-            try {
-                const jsonStringMatch = nutritionResult.match(/\{[\s\S]*\}/);
-                if (!jsonStringMatch) throw new Error("No JSON object found in API response.");
-                
-                const parsedResult = JSON.parse(jsonStringMatch[0]);
-
-                if (!parsedResult || typeof parsedResult.nutrition !== 'object' || parsedResult.nutrition === null || !parsedResult.nutrition.calories) {
-                     throw new Error("API response is missing valid 'nutrition' data or key fields like 'calories'.");
-                }
-                nutritionData = parsedResult.nutrition;
-
-            } catch (e) {
-                console.error("Meal analysis error:", e);
-                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not process the meal's nutrition data. The format from the AI was unexpected. Please try rephrasing your ingredients.</p>`;
-                setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
-                return; 
-            }
+        if (url) {
+            // If a URL is provided, we can't split it. We'll analyze it as a whole.
+            // This path remains for URL-based analysis, which might still be less reliable.
+            ingredientsList = [url];
+            originalMealInput = `URL: ${url}`;
+        } else if (ingredientsText) {
+            ingredientsList = ingredientsText.split('\n').map(i => i.trim()).filter(i => i.length > 0);
+            originalMealInput = `Ingredients: ${ingredientsText}`;
         } else {
-            mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not analyze the meal's nutrition. The request timed out or failed.</p>`;
-            setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
+            return; // No input
+        }
+
+        if (ingredientsList.length === 0) {
+            showModal('Error', 'Please enter at least one ingredient.');
             return;
         }
-        
-        // Render the nutrition label first if we have valid data
-        mealOutput.innerHTML = renderNutritionLabel(nutritionData, 'Total Meal Nutrition');
 
-        // --- Step 2: Fetch Suggestions ---
-        const suggestionsContainer = document.createElement('div');
-        suggestionsContainer.id = 'suggestions-container';
-        suggestionsContainer.innerHTML = getSkeletonHTML('recipe'); // Re-using recipe skeleton for suggestions
-        mealOutput.appendChild(suggestionsContainer);
+        setLoadingState(analyzeMealBtn, true, `Analyzing ${ingredientsList.length} item(s)...`);
+        mealOutput.innerHTML = getSkeletonHTML('meal');
 
-        setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...'); // Update button text for the second step
+        // --- Step 1: Fetch Nutrition Data for each ingredient ---
+        const nutritionPromises = ingredientsList.map(ingredient => {
+            const prompt = `You are a nutrition calculator. Analyze the nutrition for this single item: "${ingredient}". Return ONLY a single JSON object with the required keys: calories (number), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" or 0 for unknown values. For example: { "calories": 165, "protein": "31g", ... }`;
+            return callGeminiApi(prompt, 'meal');
+        });
 
-        const suggestionsPrompt = `Based on the meal ingredients "${mealInput}", provide helpful suggestions. Return ONLY a single JSON object with a key "suggestions" which contains two string properties: "taste" and "health". For example: { "suggestions": { "taste": "A pinch of smoked paprika would be great.", "health": "Consider adding a side of steamed vegetables." } }`;
-        const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
-
-        if (suggestionsResult) {
-             try {
-                const jsonStringMatch = suggestionsResult.match(/\{[\s\S]*\}/);
-                if (!jsonStringMatch) throw new Error("No JSON object found in suggestions response.");
-                const suggestionsData = JSON.parse(jsonStringMatch[0]);
-
-                if (!suggestionsData || typeof suggestionsData.suggestions !== 'object' || suggestionsData.suggestions === null) {
-                    throw new Error("Suggestions response is missing valid 'suggestions' data.");
+        try {
+            const results = await Promise.all(nutritionPromises);
+            
+            const nutritionData = results.map(res => {
+                if (!res) return null;
+                try {
+                    const jsonMatch = res.match(/\{[\s\S]*\}/);
+                    if (!jsonMatch) return null;
+                    return JSON.parse(jsonMatch[0]);
+                } catch (e) {
+                    console.error('Failed to parse individual ingredient:', e);
+                    return null;
                 }
+            }).filter(Boolean); // Filter out nulls from failed parses
 
-                const suggestionsHtml = `
-                    <div class="mt-8 bg-card p-6 rounded-xl border border-card glass-card">
-                        <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-primary"></i>AI Suggestions</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-bold text-primary">Taste Improvement:</h4>
-                                <p class="text-sub">${suggestionsData.suggestions.taste ?? 'No suggestions available.'}</p>
+            if (nutritionData.length === 0) {
+                throw new Error("Could not retrieve nutritional data for any of the ingredients. Please check your input and try again.");
+            }
+
+            // --- Step 2: Sum the data and render the label ---
+            const totalNutrition = sumNutritionData(nutritionData);
+            mealOutput.innerHTML = renderNutritionLabel(totalNutrition, 'Total Meal Nutrition');
+
+            // --- Step 3: Fetch Suggestions ---
+            const suggestionsContainer = document.createElement('div');
+            suggestionsContainer.id = 'suggestions-container';
+            suggestionsContainer.innerHTML = getSkeletonHTML('recipe');
+            mealOutput.appendChild(suggestionsContainer);
+
+            setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...');
+
+            const suggestionsPrompt = `Based on the meal ingredients "${originalMealInput}", provide helpful suggestions. Return ONLY a single JSON object with a key "suggestions" which contains two string properties: "taste" and "health".`;
+            const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
+
+            if (suggestionsResult) {
+                try {
+                    const jsonMatch = suggestionsResult.match(/\{[\s\S]*\}/);
+                    if (!jsonMatch) throw new Error("No JSON object in suggestions response.");
+                    const suggestionsData = JSON.parse(jsonMatch[0]);
+                    
+                    const suggestionsHtml = `
+                        <div class="mt-8 bg-card p-6 rounded-xl border border-card glass-card">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-primary"></i>AI Suggestions</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-primary">Taste Improvement:</h4>
+                                    <p class="text-sub">${suggestionsData.suggestions.taste ?? 'No suggestions available.'}</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-green-400">Health Improvement:</h4>
+                                    <p class="text-sub">${suggestionsData.suggestions.health ?? 'No suggestions available.'}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-green-400">Health Improvement:</h4>
-                                <p class="text-sub">${suggestionsData.suggestions.health ?? 'No suggestions available.'}</p>
-                            </div>
-                        </div>
-                    </div>`;
-                suggestionsContainer.innerHTML = suggestionsHtml;
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-             } catch (e) {
-                console.error("Suggestion parsing error:", e);
-                suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not parse suggestions.</p>`;
-             }
-        } else {
-            suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not retrieve suggestions.</p>`;
+                        </div>`;
+                    suggestionsContainer.innerHTML = suggestionsHtml;
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                } catch (e) {
+                    console.error("Suggestion parsing error:", e);
+                    suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not parse suggestions.</p>`;
+                }
+            } else {
+                suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not retrieve suggestions.</p>`;
+            }
+
+        } catch (error) {
+            mealOutput.innerHTML = `<p class="text-red-400 text-center">${error.message}</p>`;
+        } finally {
+            setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
         }
-
-        setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
     });
     
     const recipeOutput = document.getElementById('recipe-output');
@@ -828,4 +899,3 @@ window.onload = () => {
             appContainer.style.opacity = '1';
         }
     }, 2000); 
-};
