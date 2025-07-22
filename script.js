@@ -1,1 +1,802 @@
-const _0x20fffe=_0x3f4b;(function(_0x4e22ca,_0x2148bd){const _0x2bc0ee=_0x3f4b,_0x49dafc=_0x4e22ca();while(!![]){try{const _0x3d0ebe=parseInt(_0x2bc0ee(0x19d))/0x1+parseInt(_0x2bc0ee(0x1d5))/0x2+-parseInt(_0x2bc0ee(0xd2))/0x3+parseInt(_0x2bc0ee(0x163))/0x4*(-parseInt(_0x2bc0ee(0x16c))/0x5)+-parseInt(_0x2bc0ee(0x111))/0x6+parseInt(_0x2bc0ee(0x183))/0x7+-parseInt(_0x2bc0ee(0xff))/0x8*(parseInt(_0x2bc0ee(0x12b))/0x9);if(_0x3d0ebe===_0x2148bd)break;else _0x49dafc['push'](_0x49dafc['shift']());}catch(_0x20337d){_0x49dafc['push'](_0x49dafc['shift']());}}}(_0x5dd0,0xb49ac));function setupApp(){const _0x32ac1e=_0x3f4b;initializeTheme(),renderAllPages(),handleUserLogin(),setupNavigation(),typeof lucide!==_0x32ac1e(0x17e)&&lucide['createIcons']();}function initializeTheme(){const _0xb55cf8=_0x3f4b,_0x5f51f3=localStorage[_0xb55cf8(0x1e3)](_0xb55cf8(0x1c2))||_0xb55cf8(0xb8);document[_0xb55cf8(0x194)][_0xb55cf8(0xce)]=_0x5f51f3;}function toggleTheme(){const _0x4fc0a0=_0x3f4b,_0x1b2fa7=document[_0x4fc0a0(0x194)][_0x4fc0a0(0xad)][_0x4fc0a0(0x91)](_0x4fc0a0(0xb8))?'dark':_0x4fc0a0(0x1b4),_0x209f0c=_0x1b2fa7===_0x4fc0a0(0xb8)?_0x4fc0a0(0x1b4):'dark';document['documentElement'][_0x4fc0a0(0xce)]=_0x209f0c,localStorage['setItem']('theme',_0x209f0c);}function handleUserLogin(){const _0x29804a=_0x3f4b,_0x17e760=localStorage[_0x29804a(0x1e3)](_0x29804a(0x1bf));if(!_0x17e760){const _0x5dd50f='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x20mb-4\x22>Welcome\x20to\x20Calverse!\x20What\x20should\x20we\x20call\x20you?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22name-input\x22\x20type=\x22text\x22\x20placeholder=\x22Enter\x20your\x20name\x22\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x20text-main\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20',_0x5da6f4=_0x29804a(0x104);showModal(_0x29804a(0x184),_0x5dd50f,_0x5da6f4),document['getElementById'](_0x29804a(0xc7))[_0x29804a(0xa5)](_0x29804a(0xdc),()=>{const _0x346570=_0x29804a,_0x1a2ada=document['getElementById']('name-input')[_0x346570(0x118)];_0x1a2ada&&_0x1a2ada['trim']()!==''&&(localStorage[_0x346570(0x1d3)](_0x346570(0x1bf),_0x1a2ada['trim']()),updateUIWithUserData(),hideModal());});}else updateUIWithUserData();}function updateUIWithUserData(){const _0x22af33=_0x3f4b,_0x1d93e3=localStorage[_0x22af33(0x1e3)]('userName')||'User',_0x11475c=_0x1d93e3['charAt'](0x0)[_0x22af33(0x137)](),_0xa466e5=document[_0x22af33(0x1d2)](_0x22af33(0x190));_0xa466e5&&(_0xa466e5[_0x22af33(0x101)]=_0x11475c);const _0x275569=document[_0x22af33(0x1d2)](_0x22af33(0x1b1));if(_0x275569)_0x275569[_0x22af33(0x101)]=new Date()[_0x22af33(0xd6)](_0x22af33(0x1e2),{'month':_0x22af33(0x11b),'day':_0x22af33(0x1bd)});const _0x865ef9=document[_0x22af33(0xf5)](_0x22af33(0x174));_0x865ef9&&(_0x865ef9[_0x22af33(0x101)]=_0x22af33(0x10a)+_0x1d93e3+'!');const _0x6b9eef=document['getElementById'](_0x22af33(0x9b));_0x6b9eef&&(_0x6b9eef[_0x22af33(0x101)]=_0x1d93e3);const _0xc31354=document[_0x22af33(0x1d2)](_0x22af33(0x175));_0xc31354&&(_0xc31354[_0x22af33(0x101)]=_0x11475c);}function setupNavigation(){const _0x539c16=_0x3f4b,_0x13043b=document['querySelectorAll'](_0x539c16(0xc0)),_0x1ad018=document[_0x539c16(0x124)](_0x539c16(0x9f)),_0x4d8d97=document['getElementById'](_0x539c16(0xae)),_0x48a3cf={'food':_0x539c16(0xc2),'meal':'Meal\x20Analyzer','recipes':'Recipes\x20&\x20Cravings','calculator':_0x539c16(0x167),'about':'About\x20Us','contact':_0x539c16(0x1cb),'faq':_0x539c16(0x151)},_0x53ed6c=_0x233de4=>{const _0x121104=_0x539c16;_0x233de4=_0x233de4||_0x121104(0xf2),_0x1ad018[_0x121104(0xee)](_0x2f9e5b=>_0x2f9e5b['classList'][_0x121104(0x108)](_0x121104(0x1cc),_0x2f9e5b['id']===_0x233de4)),_0x4d8d97&&(_0x4d8d97['textContent']=_0x48a3cf[_0x233de4]||_0x121104(0xc2)),document[_0x121104(0x124)](_0x121104(0x159))[_0x121104(0xee)](_0x34d776=>_0x34d776[_0x121104(0xad)][_0x121104(0x108)](_0x121104(0x1cc),_0x34d776['getAttribute'](_0x121104(0x10d))==='#'+_0x233de4)),document[_0x121104(0x124)](_0x121104(0xa3))[_0x121104(0xee)](_0x42fcf5=>_0x42fcf5['classList'][_0x121104(0x108)]('active',_0x42fcf5['getAttribute']('href')==='#'+_0x233de4));};_0x13043b['forEach'](_0x1d447c=>{const _0x580211=_0x539c16;_0x1d447c[_0x580211(0xa5)]('click',_0x3149f4=>{const _0x44e167=_0x580211;_0x3149f4[_0x44e167(0x109)]();const _0x321767=_0x1d447c[_0x44e167(0xc5)]('href')[_0x44e167(0x94)](0x1);window[_0x44e167(0xe0)][_0x44e167(0xf8)]=_0x321767;});}),window[_0x539c16(0xa5)]('hashchange',()=>_0x53ed6c(window['location']['hash'][_0x539c16(0x94)](0x1))),_0x53ed6c(window[_0x539c16(0xe0)][_0x539c16(0xf8)][_0x539c16(0x94)](0x1)||_0x539c16(0xf2));}function _0x3f4b(_0x4729cb,_0x4eb2dc){const _0x5dd01b=_0x5dd0();return _0x3f4b=function(_0x3f4b02,_0x23ee17){_0x3f4b02=_0x3f4b02-0x90;let _0x57c970=_0x5dd01b[_0x3f4b02];return _0x57c970;},_0x3f4b(_0x4729cb,_0x4eb2dc);}function renderAllPages(){const _0xbd7c2=_0x3f4b,_0x99978=localStorage[_0xbd7c2(0x1e3)](_0xbd7c2(0x1bf))||'User',_0x967d1e=_0x99978[_0xbd7c2(0x9e)](0x0)['toUpperCase']();document[_0xbd7c2(0x1d2)](_0xbd7c2(0xf2))[_0xbd7c2(0x1ec)]=_0xbd7c2(0xd5)+_0x99978+_0xbd7c2(0x192),document[_0xbd7c2(0x1d2)]('meal')[_0xbd7c2(0x1ec)]=_0xbd7c2(0xbe),document[_0xbd7c2(0x1d2)](_0xbd7c2(0x1a6))[_0xbd7c2(0x1ec)]=_0xbd7c2(0x14c),document['getElementById'](_0xbd7c2(0xdb))[_0xbd7c2(0x1ec)]=_0xbd7c2(0x1db),document['getElementById'](_0xbd7c2(0x189))[_0xbd7c2(0x1ec)]=_0xbd7c2(0x170),document[_0xbd7c2(0x1d2)](_0xbd7c2(0x182))['innerHTML']=_0xbd7c2(0x165),document['getElementById'](_0xbd7c2(0xcd))['innerHTML']=_0xbd7c2(0xb1),document[_0xbd7c2(0x1d2)](_0xbd7c2(0x15f))['innerHTML']=_0xbd7c2(0x134)+_0x967d1e+_0xbd7c2(0x10f)+_0x99978+_0xbd7c2(0x1dd),document['getElementById'](_0xbd7c2(0x166))[_0xbd7c2(0xa5)]('click',()=>{const _0x1b1982=_0xbd7c2;document[_0x1b1982(0x1d2)](_0x1b1982(0x15f))[_0x1b1982(0xad)]['add'](_0x1b1982(0xe6)),document[_0x1b1982(0x139)][_0x1b1982(0xad)][_0x1b1982(0xc9)](_0x1b1982(0xed));}),document['getElementById']('profile-avatar-btn')['addEventListener'](_0xbd7c2(0xdc),()=>{const _0x50df32=_0xbd7c2;document[_0x50df32(0x1d2)](_0x50df32(0x15f))['classList'][_0x50df32(0xc9)](_0x50df32(0xe6)),document[_0x50df32(0x139)][_0x50df32(0xad)]['add'](_0x50df32(0xed));}),document[_0xbd7c2(0x124)](_0xbd7c2(0xeb))[_0xbd7c2(0xee)](_0x593fdf=>{const _0x17f029=_0xbd7c2;_0x593fdf[_0x17f029(0xa5)](_0x17f029(0xdc),()=>{const _0x5319ca=_0x17f029;document[_0x5319ca(0x1d2)](_0x5319ca(0x15f))[_0x5319ca(0xad)][_0x5319ca(0xb9)]('translate-x-full'),document[_0x5319ca(0x139)][_0x5319ca(0xad)][_0x5319ca(0xc9)](_0x5319ca(0xed));});}),document[_0xbd7c2(0x1d2)](_0xbd7c2(0xc8))[_0xbd7c2(0xa5)](_0xbd7c2(0xdc),hideModal),document[_0xbd7c2(0x1d2)](_0xbd7c2(0x149))['addEventListener'](_0xbd7c2(0xdc),()=>{toggleTheme(),updateThemeToggleUI();}),updateThemeToggleUI(),setupSettingsLogic(),setupFeatureLogic();}function updateThemeToggleUI(){const _0x24b5a0=_0x3f4b,_0xfd51fb=document['documentElement'][_0x24b5a0(0xad)][_0x24b5a0(0x91)]('dark'),_0x21bb8b=document[_0x24b5a0(0x1d2)](_0x24b5a0(0x149)),_0x20faa6=document[_0x24b5a0(0x1d2)]('theme-toggle-indicator'),_0x2f3279=document[_0x24b5a0(0xf5)](_0x24b5a0(0x1c8));if(_0xfd51fb){_0x21bb8b[_0x24b5a0(0xad)][_0x24b5a0(0xc9)]('bg-gray-400'),_0x21bb8b[_0x24b5a0(0xad)][_0x24b5a0(0xb9)](_0x24b5a0(0xef)),_0x20faa6['style'][_0x24b5a0(0x1d6)]=_0x24b5a0(0x19f);if(_0x2f3279)_0x2f3279['setAttribute'](_0x24b5a0(0x1da),_0x24b5a0(0x99));}else{_0x21bb8b[_0x24b5a0(0xad)][_0x24b5a0(0xb9)](_0x24b5a0(0x13a)),_0x21bb8b[_0x24b5a0(0xad)][_0x24b5a0(0xc9)](_0x24b5a0(0xef)),_0x20faa6[_0x24b5a0(0x18f)][_0x24b5a0(0x1d6)]=_0x24b5a0(0x197);if(_0x2f3279)_0x2f3279[_0x24b5a0(0x13b)]('data-lucide',_0x24b5a0(0xca));}typeof lucide!==_0x24b5a0(0x17e)&&lucide[_0x24b5a0(0x110)]();}function setupSettingsLogic(){const _0x4ef411=_0x3f4b,_0x43773d=document[_0x4ef411(0x1d2)]('edit-name-btn');_0x43773d&&_0x43773d[_0x4ef411(0xa5)](_0x4ef411(0xdc),()=>{const _0xb47801=_0x4ef411,_0x5cd73c=localStorage[_0xb47801(0x1e3)](_0xb47801(0x1bf))||'User',_0x1bde39=_0xb47801(0x1e9)+_0x5cd73c+_0xb47801(0x157),_0x4896f8=_0xb47801(0x10c);showModal(_0xb47801(0x1ad),_0x1bde39,_0x4896f8),document[_0xb47801(0x1d2)](_0xb47801(0xc7))[_0xb47801(0xa5)]('click',()=>{const _0x654800=_0xb47801,_0x2be4f3=document['getElementById']('name-input')[_0x654800(0x118)];_0x2be4f3&&_0x2be4f3[_0x654800(0x12a)]()!==''&&(localStorage[_0x654800(0x1d3)]('userName',_0x2be4f3[_0x654800(0x12a)]()),updateUIWithUserData(),hideModal());}),document['getElementById']('modal-cancel-btn')[_0xb47801(0xa5)]('click',hideModal);});}function setupFeatureLogic(){const _0x321c90=_0x3f4b,_0x401d44=[{'id':_0x321c90(0xfa),'name':_0x321c90(0x131),'icon':_0x321c90(0x12d),'fields':[{'id':'height','placeholder':_0x321c90(0x185),'type':_0x321c90(0x97)},{'id':_0x321c90(0x129),'placeholder':_0x321c90(0xf0),'type':_0x321c90(0x97)}],'func':_0x321c90(0xbf)},{'id':_0x321c90(0x162),'name':_0x321c90(0x18b),'icon':'flame','fields':[{'id':'age','placeholder':_0x321c90(0x125),'type':_0x321c90(0x97)},{'id':_0x321c90(0xdf),'type':'select','options':[_0x321c90(0x179),_0x321c90(0x17f)]},{'id':_0x321c90(0x13f),'placeholder':_0x321c90(0x185),'type':'number'},{'id':_0x321c90(0x129),'placeholder':_0x321c90(0xf0),'type':'number'}],'func':_0x321c90(0x122)},{'id':'bf','name':_0x321c90(0x19e),'icon':_0x321c90(0xcf),'fields':[{'id':_0x321c90(0xdf),'type':_0x321c90(0xea),'options':[_0x321c90(0x179),_0x321c90(0x17f)]},{'id':_0x321c90(0x13f),'placeholder':'Height\x20(cm)','type':_0x321c90(0x97)},{'id':_0x321c90(0x129),'placeholder':_0x321c90(0xf0),'type':'number'},{'id':_0x321c90(0xfb),'placeholder':_0x321c90(0xa0),'type':_0x321c90(0x97)},{'id':'waist','placeholder':_0x321c90(0x152),'type':_0x321c90(0x97)},{'id':'hip','placeholder':_0x321c90(0x150),'type':'number'}],'func':'calculateBodyFat'},{'id':'iw','name':_0x321c90(0x11d),'icon':_0x321c90(0xb3),'fields':[{'id':_0x321c90(0xdf),'type':_0x321c90(0xea),'options':[_0x321c90(0x179),_0x321c90(0x17f)]},{'id':'height','placeholder':'Height\x20(cm)','type':_0x321c90(0x97)}],'func':_0x321c90(0x11e)},{'id':'lbm','name':_0x321c90(0xb6),'icon':'bone','fields':[{'id':_0x321c90(0xdf),'type':_0x321c90(0xea),'options':[_0x321c90(0x179),_0x321c90(0x17f)]},{'id':_0x321c90(0x13f),'placeholder':'Height\x20(cm)','type':_0x321c90(0x97)},{'id':_0x321c90(0x129),'placeholder':'Weight\x20(kg)','type':_0x321c90(0x97)}],'func':_0x321c90(0x1e6)},{'id':_0x321c90(0xd0),'name':_0x321c90(0xba),'icon':_0x321c90(0x130),'fields':[{'id':'weight','placeholder':'Weight\x20(kg)','type':_0x321c90(0x97)},{'id':'activity','type':_0x321c90(0xea),'options':[_0x321c90(0x1ab),_0x321c90(0x135),'Moderately\x20Active',_0x321c90(0xe3),_0x321c90(0x15e)]}],'func':_0x321c90(0x1ee)},{'id':_0x321c90(0xbc),'name':_0x321c90(0x1e4),'icon':_0x321c90(0x169),'fields':[{'id':_0x321c90(0x187),'placeholder':'Age','type':'number'},{'id':'gender','type':_0x321c90(0xea),'options':[_0x321c90(0x179),'Female']},{'id':_0x321c90(0x13f),'placeholder':'Height\x20(cm)','type':_0x321c90(0x97)},{'id':_0x321c90(0x129),'placeholder':_0x321c90(0xf0),'type':_0x321c90(0x97)},{'id':_0x321c90(0x19a),'type':'select','options':[_0x321c90(0x1ab),_0x321c90(0x135),'Moderately\x20Active','Very\x20Active',_0x321c90(0x15e)]}],'func':'calculateMaintenanceCalories'},{'id':_0x321c90(0x199),'name':_0x321c90(0x18e),'icon':'calendar-heart','fields':[{'id':_0x321c90(0x1dc),'placeholder':_0x321c90(0x191),'type':_0x321c90(0x14d)},{'id':_0x321c90(0xaf),'placeholder':_0x321c90(0x196),'type':_0x321c90(0x97),'value':0x1c}],'func':_0x321c90(0x1b3)}],_0x5c1304=document[_0x321c90(0x1d2)]('calculator-accordion');_0x5c1304&&(_0x5c1304[_0x321c90(0x1ec)]=_0x401d44['map'](_0x359789=>_0x321c90(0x14a)+_0x359789[_0x321c90(0xdd)]+_0x321c90(0xd3)+_0x359789[_0x321c90(0x132)]+_0x321c90(0xc3)+_0x359789[_0x321c90(0x173)][_0x321c90(0x17b)](_0x4841b6=>_0x4841b6[_0x321c90(0xf9)]==='select'?_0x321c90(0x1ac)+_0x359789['id']+'-'+_0x4841b6['id']+_0x321c90(0x1ef)+_0x4841b6[_0x321c90(0xb7)][_0x321c90(0x17b)](_0x239e35=>_0x321c90(0x198)+_0x239e35[_0x321c90(0x113)]()[_0x321c90(0xa6)](/ /g,'-')+'\x22>'+_0x239e35+_0x321c90(0x14f))['join']('')+_0x321c90(0x140):_0x321c90(0x1c3)+(_0x4841b6[_0x321c90(0xf9)]===_0x321c90(0x14d)?_0x321c90(0x1a7):_0x4841b6[_0x321c90(0xf9)])+'\x22\x20onfocus=\x22'+(_0x4841b6[_0x321c90(0xf9)]==='date'?'(this.type=\x27date\x27)':'')+_0x321c90(0x1ae)+(_0x4841b6['type']==='date'?'(this.type=\x27text\x27)':'')+_0x321c90(0xd1)+_0x359789['id']+'-'+_0x4841b6['id']+_0x321c90(0xe2)+_0x4841b6[_0x321c90(0x14e)]+'\x22\x20'+(_0x4841b6[_0x321c90(0x118)]?_0x321c90(0x1a9)+_0x4841b6[_0x321c90(0x118)]+'\x22':'')+_0x321c90(0x1b2))[_0x321c90(0x1b5)]('')+_0x321c90(0x93)+_0x359789['func']+_0x321c90(0xa1))[_0x321c90(0x1b5)](''));document[_0x321c90(0x124)]('.accordion-header')[_0x321c90(0xee)](_0x22e2b2=>{const _0x11d7c7=_0x321c90;_0x22e2b2[_0x11d7c7(0xa5)](_0x11d7c7(0xdc),()=>{const _0x2187a0=_0x11d7c7,_0x26a685=_0x22e2b2[_0x2187a0(0x1ce)],_0x3fc4e2=_0x22e2b2[_0x2187a0(0x1f0)],_0xb5bf31=_0x22e2b2[_0x2187a0(0xf5)](_0x2187a0(0x119)),_0x1efc87=_0x3fc4e2['style'][_0x2187a0(0x9d)]&&_0x3fc4e2['style'][_0x2187a0(0x9d)]!=='0px',_0x1861b2=_0x26a685[_0x2187a0(0x1ce)];_0x1861b2['querySelectorAll'](_0x2187a0(0x1c1))['forEach'](_0x442e17=>{const _0x57102b=_0x2187a0;if(_0x442e17!==_0x26a685){_0x442e17[_0x57102b(0xf5)](_0x57102b(0x10b))[_0x57102b(0x18f)][_0x57102b(0x9d)]=null;const _0x24510d=_0x442e17[_0x57102b(0xf5)]('i[data-lucide=\x22chevron-down\x22]');if(_0x24510d)_0x24510d[_0x57102b(0xad)][_0x57102b(0xc9)]('rotate-180');}});if(_0x1efc87){_0x3fc4e2['style']['maxHeight']=null;if(_0xb5bf31)_0xb5bf31[_0x2187a0(0xad)][_0x2187a0(0xc9)]('rotate-180');}else{_0x3fc4e2[_0x2187a0(0x18f)][_0x2187a0(0x9d)]=_0x3fc4e2[_0x2187a0(0x1e0)]+'px';if(_0xb5bf31)_0xb5bf31[_0x2187a0(0xad)][_0x2187a0(0xb9)](_0x2187a0(0x1ea));}});}),document[_0x321c90(0x124)](_0x321c90(0x9c))[_0x321c90(0xee)](_0x431c50=>{const _0x514121=_0x321c90;_0x431c50[_0x514121(0xa5)](_0x514121(0xdc),_0x904906=>{const _0x1d83f8=_0x514121,_0x3c3c67=_0x904906[_0x1d83f8(0xb3)][_0x1d83f8(0x1de)][_0x1d83f8(0x143)];window[_0x3c3c67]&&window[_0x3c3c67]();});}),checkScrollHint(),window[_0x321c90(0xa5)](_0x321c90(0x1a1),checkScrollHint);const _0x42b040=document[_0x321c90(0x1d2)](_0x321c90(0x15b)),_0x2da587=document[_0x321c90(0x1d2)](_0x321c90(0x1b8)),_0x591beb=document['getElementById'](_0x321c90(0xb5)),_0x24c7f3=async()=>{const _0x4494d3=_0x321c90;if(!_0x2da587[_0x4494d3(0x118)][_0x4494d3(0x12a)]())return;setLoadingState(_0x42b040,!![],_0x4494d3(0x1d1)),_0x591beb['innerHTML']=getSkeletonHTML('nutrition');const _0x95b09e=_0x4494d3(0xb4)+_0x2da587[_0x4494d3(0x118)]+'\x22.\x20Return\x20ONLY\x20a\x20JSON\x20object\x20with\x20keys:\x20foodItem,\x20servingSize,\x20calories\x20(number),\x20totalFat,\x20saturatedFat,\x20transFat,\x20cholesterol,\x20sodium,\x20totalCarbohydrate,\x20dietaryFiber,\x20totalSugars,\x20protein,\x20vitaminD,\x20calcium,\x20iron,\x20potassium.\x20Use\x20\x22N/A\x22\x20for\x20unknowns.',_0x320fc4=await callGeminiApi(_0x95b09e);if(_0x320fc4)try{const _0x154965=JSON[_0x4494d3(0x1a5)](_0x320fc4[_0x4494d3(0xf6)](/\{[\s\S]*\}/)[0x0]);_0x591beb[_0x4494d3(0x1ec)]=renderNutritionLabel(_0x154965);}catch(_0x3e4989){_0x591beb[_0x4494d3(0x1ec)]='<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20parse\x20nutrition\x20data.\x20Try\x20a\x20more\x20specific\x20query.</p>';}else _0x591beb[_0x4494d3(0x1ec)]='<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20retrieve\x20nutrition\x20data.\x20Please\x20try\x20again.</p>';setLoadingState(_0x42b040,![],_0x4494d3(0xec));};_0x42b040[_0x321c90(0xa5)]('click',_0x24c7f3),_0x2da587['addEventListener'](_0x321c90(0x95),_0x23a107=>_0x23a107[_0x321c90(0x1aa)]===_0x321c90(0x17d)&&_0x24c7f3());const _0x5e34a8=document[_0x321c90(0x1d2)]('analyze-meal-btn'),_0x3e20b9=document[_0x321c90(0x1d2)]('meal-output');_0x5e34a8[_0x321c90(0xa5)](_0x321c90(0xdc),async()=>{const _0x4b9289=_0x321c90,_0x4df14c=document[_0x4b9289(0x1d2)](_0x4b9289(0x1be))['value'][_0x4b9289(0x12a)](),_0x33862f=document[_0x4b9289(0x1d2)](_0x4b9289(0xf3))[_0x4b9289(0x118)]['trim']();if(!_0x4df14c&&!_0x33862f)return;setLoadingState(_0x5e34a8,!![],_0x4b9289(0x1d1)),_0x3e20b9[_0x4b9289(0x1ec)]=getSkeletonHTML(_0x4b9289(0x126));const _0x26839e=_0x4df14c?_0x4b9289(0x17a)+_0x4df14c:_0x4b9289(0xd4)+_0x33862f,_0x9f7ce9=_0x4b9289(0x1a4)+_0x26839e+_0x4b9289(0xfe),_0x5bc5a0=await callGeminiApi(_0x9f7ce9,_0x4b9289(0x126));if(_0x5bc5a0)try{const _0x5f5533=JSON['parse'](_0x5bc5a0['match'](/\{[\s\S]*\}/)[0x0]);let _0x4c216b=renderNutritionLabel(_0x5f5533[_0x4b9289(0x1e8)],_0x4b9289(0x14b));_0x4c216b+=_0x4b9289(0xe5)+_0x5f5533[_0x4b9289(0xa8)]['taste']+_0x4b9289(0xac)+_0x5f5533[_0x4b9289(0xa8)][_0x4b9289(0x16a)]+'</p></div></div></div>',_0x3e20b9[_0x4b9289(0x1ec)]=_0x4c216b;if(typeof lucide!=='undefined')lucide[_0x4b9289(0x110)]();}catch(_0x3dbdb5){_0x3e20b9[_0x4b9289(0x1ec)]=_0x4b9289(0xcc);}else _0x3e20b9[_0x4b9289(0x1ec)]=_0x4b9289(0x145);setLoadingState(_0x5e34a8,![],_0x4b9289(0x127));});const _0x42de5a=document[_0x321c90(0x1d2)](_0x321c90(0x1af)),_0x30f4f9=(_0x1dc605,_0x1d3997,_0xc51a40)=>{const _0x52f577=_0x321c90,_0x3fdf6a=document[_0x52f577(0x1d2)](_0x1dc605);_0x3fdf6a[_0x52f577(0xa5)](_0x52f577(0xdc),async()=>{const _0x48fdbb=_0x52f577,_0x108836=document['getElementById'](_0x1d3997)[_0x48fdbb(0x118)]['trim']();if(!_0x108836)return;const _0x1afb13=_0x3fdf6a[_0x48fdbb(0x1ec)];setLoadingState(_0x3fdf6a,!![],_0x48fdbb(0x1e7)),_0x42de5a[_0x48fdbb(0x1ec)]=getSkeletonHTML(_0x48fdbb(0x11f));const _0x275c69=await callGeminiApi(_0xc51a40(_0x108836));_0x275c69?_0x42de5a[_0x48fdbb(0x1ec)]=_0x48fdbb(0x115)+formatAiText(_0x275c69)+_0x48fdbb(0xab):_0x42de5a[_0x48fdbb(0x1ec)]=_0x48fdbb(0x1d4),setLoadingState(_0x3fdf6a,![],_0x1afb13);});};_0x30f4f9(_0x321c90(0xb2),'recipe-ingredients-input',_0x3419ca=>_0x321c90(0x195)+_0x3419ca+'.\x20Be\x20concise.\x20Use\x20markdown\x20for\x20formatting:\x20\x27###\x20Title\x27,\x20\x27###\x20Ingredients\x27,\x20\x27###\x20Instructions\x27.\x20Use\x20\x27*\x27\x20for\x20list\x20items.'),_0x30f4f9('solve-craving-btn',_0x321c90(0x112),_0x4a0f47=>_0x321c90(0xe1)+_0x4a0f47+_0x321c90(0x17c)),typeof lucide!==_0x321c90(0x17e)&&lucide['createIcons']();}function _0x5dd0(){const _0x1c84dd=['bg-gray-400','setAttribute','parts','toFixed','servingSize','height','</select>','vitaminD','error','func','\x20g</p><p\x20class=\x22text-sub\x20text-center\x22>per\x20day</p>','<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20analyze\x20the\x20meal.</p>','%</p><p\x20class=\x22text-sub\x20text-center\x22>Body\x20Fat</p>','Body\x20Fat\x20Result','content','theme-toggle-btn','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-item\x20border-card\x20border\x20rounded-lg\x20glass-card\x22><button\x20class=\x22accordion-header\x20w-full\x20text-left\x20p-4\x20font-semibold\x20text-lg\x20flex\x20justify-between\x20items-center\x20transition-colors\x20hover:text-primary\x20text-main\x22><span\x20class=\x22flex\x20items-center\x22><i\x20data-lucide=\x22','Total\x20Meal\x20Nutrition','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-4\x20mb-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20data-lucide=\x22notebook-pen\x22\x20class=\x22w-8\x20h-8\x20text-primary\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20text-main\x22>Recipes\x20&\x20Cravings</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x22>Find\x20healthy\x20recipes\x20or\x20alternatives\x20to\x20your\x20cravings.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22grid\x20md:grid-cols-2\x20gap-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-6\x20rounded-xl\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xl\x20font-semibold\x20mb-4\x20flex\x20items-center\x20text-main\x22><i\x20data-lucide=\x22chef-hat\x22\x20class=\x22w-6\x20h-6\x20mr-3\x20text-primary\x22></i>Recipe\x20Generator</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22recipe-ingredients-input\x22\x20placeholder=\x22What\x20ingredients\x20do\x20you\x20have?&#10;e.g.,\x20chicken\x20breast,\x20broccoli,\x20soy\x20sauce\x22\x20class=\x22input-field\x20w-full\x20h-32\x20border\x20rounded-lg\x20px-4\x20py-3\x20mb-4\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22generate-recipe-btn\x22\x20class=\x22btn-primary\x20w-full\x22>Generate\x20Recipe</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-6\x20rounded-xl\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xl\x20font-semibold\x20mb-4\x20flex\x20items-center\x20text-main\x22><i\x20data-lucide=\x22cookie\x22\x20class=\x22w-6\x20h-6\x20mr-3\x20text-primary\x22></i>Craving\x20Solver</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22craving-input\x22\x20type=\x22text\x22\x20placeholder=\x22What\x20are\x20you\x20craving?\x20e.g.,\x20Pizza\x22\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20mb-4\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22solve-craving-btn\x22\x20class=\x22btn-primary\x20w-full\x22>Find\x20Healthy\x20Alternative</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22recipe-output\x22\x20class=\x22mt-8\x22></div>','date','placeholder','</option>','Hip\x20(cm)\x20(Females)','FAQ','Waist\x20(cm)','</p><p\x20class=\x22text-sub\x20text-center\x22>','transitionend','preloader','app-container','\x22\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x20text-main\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Overweight','.nav-item-desktop','transFat','get-nutrition-btn','An\x20error\x20occurred\x20while\x20communicating\x20with\x20the\x20server.\x20Please\x20retry\x20','POST','Extra\x20Active','settings-overlay','</p><p\x20class=\x22text-sub\x20text-center\x22>calories/day</p>','getDate','bmr','9060BiuRJo','disabled','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-8\x20rounded-2xl\x20glass-card\x20max-w-lg\x20mx-auto\x20animate-fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-3xl\x20font-bold\x20text-main\x20mb-4\x20text-center\x22>Contact\x20Us</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x20mb-6\x20text-center\x22>Have\x20questions,\x20feedback,\x20or\x20suggestions?\x20We\x27d\x20love\x20to\x20hear\x20from\x20you!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<form\x20class=\x22space-y-4\x22\x20onsubmit=\x22event.preventDefault();\x20showModal(\x27Message\x20Sent!\x27,\x20\x27<p>Thank\x20you\x20for\x20your\x20feedback.\x20We\x20will\x20get\x20back\x20to\x20you\x20shortly.</p>\x27);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20placeholder=\x22Your\x20Name\x22\x20required\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22email\x22\x20placeholder=\x22Your\x20Email\x22\x20required\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20placeholder=\x22Your\x20Message\x22\x20required\x20class=\x22input-field\x20w-full\x20h-32\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22submit\x22\x20class=\x22btn-primary\x20w-full\x22>Send\x20Message</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</form>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','profile-close-btn','Health\x20Calculators','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x20indent\x22><span\x20class=\x22text-sub\x22>Saturated\x20Fat</span>\x20<span><span\x20class=\x22text-sub\x22>','gauge-circle','health','custom-modal','575RYqNeL','<p\x20class=\x22font-bold\x20mt-2\x20text-center\x20text-red-400\x22>','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x20indent\x22><span\x20class=\x22text-sub\x22>Total\x20Sugars</span>\x20<span\x20class=\x22text-sub\x22>','</li></ul><ul><li>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-8\x20rounded-2xl\x20glass-card\x20text-center\x20animate-fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-4xl\x20font-bold\x20text-main\x20mb-4\x22>About\x20Calverse</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x20leading-relaxed\x20max-w-2xl\x20mx-auto\x22>At\x20Calverse,\x20our\x20mission\x20is\x20to\x20make\x20healthy\x20living\x20clear,\x20accessible,\x20and\x20practical\x20for\x20everyone.\x20Whether\x20you\x27re\x20tracking\x20calories,\x20exploring\x20nutritious\x20recipes,\x20or\x20understanding\x20your\x20health\x20metrics,\x20Calverse\x20gives\x20you\x20the\x20tools\x20to\x20take\x20control\x20of\x20your\x20wellness.\x0a\x0aWe\x20use\x20our\x20own\x20trusted\x20and\x20verified\x20database,\x20built\x20from\x20reliable\x20nutritional\x20sources,\x20to\x20ensure\x20that\x20every\x20recommendation\x20and\x20value\x20you\x20see\x20is\x20accurate\x20and\x20dependable.\x0a\x0aBecause\x20with\x20the\x20right\x20information,\x20making\x20better\x20health\x20choices\x20becomes\x20easier\x20\x20and\x20living\x20a\x20healthier,\x20happier\x20life\x20becomes\x20possible\x20for\x20all.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','lbm-height','calculateMaintenanceCalories','fields','#food\x20h2','settings-user-avatar','bf-hip','length','API\x20Error:','Male','URL:\x20','map','.\x20Suggest\x20a\x20healthy\x20alternative\x20recipe.\x20Be\x20concise\x20and\x20start\x20directly\x20with\x20the\x20recipe.\x20Use\x20markdown\x20for\x20formatting:\x20\x27###\x20Title\x27,\x20\x27###\x20Why\x20It\x5c\x27s\x20Healthier\x27,\x20\x27###\x20Ingredients\x27,\x20\x27###\x20Instructions\x27.\x20Use\x20\x27*\x27\x20for\x20list\x20items.','Enter','undefined','Female','bmr-weight','</ul>','contact','8409646OGtXOi','Welcome!','Height\x20(cm)','bmi-weight','age','cycle-last-period','about','div','BMR\x20','\x20-\x20','scale-100','Period\x20&\x20Ovulation\x20','style','user-avatar','First\x20Day\x20of\x20Last\x20Period','!</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-6\x20rounded-2xl\x20mb-8\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20class=\x22text-xl\x20font-bold\x20text-main\x20mb-2\x22>Welcome\x20back!</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x22>\x22The\x20only\x20bad\x20workout\x20is\x20the\x20one\x20that\x20didn\x27t\x20happen.\x22</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-6\x20rounded-2xl\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-4\x20mb-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20data-lucide=\x22utensils\x22\x20class=\x22w-8\x20h-8\x20text-primary\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20text-main\x22>Nutrition\x20Lookup</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x22>Search\x20for\x20a\x20food\x20to\x20find\x20its\x20nutrition\x20information.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x20mb-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20data-lucide=\x22search\x22\x20class=\x22absolute\x20left-4\x20top-1/2\x20-translate-y-1/2\x20w-5\x20h-5\x20text-sub\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22nutrition-input\x22\x20type=\x22text\x22\x20placeholder=\x22E.g.,\x20\x27100g\x20Chicken\x20Breast\x27\x22\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20pl-12\x20pr-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22get-nutrition-btn\x22\x20class=\x22btn-primary\x20w-full\x20flex\x20items-center\x20justify-center\x22><i\x20data-lucide=\x22bar-chart-3\x22\x20class=\x22w-5\x20h-5\x20mr-2\x22></i>Analyze</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22nutrition-output\x22\x20class=\x22mt-8\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','calculateBodyFat','documentElement','Create\x20a\x20healthy\x20recipe\x20using:\x20','Avg.\x20Cycle\x20Length','translateX(0.125rem)','<option\x20value=\x22','cycle','activity','<div\x20class=\x22bg-card\x20border-card\x20border\x20p-6\x20rounded-xl\x20glass-card\x20skeleton\x22><div\x20class=\x22space-y-4\x22><div\x20class=\x22skeleton-title\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20w-5/6\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20w-2/3\x20bg-gray-700\x20rounded\x22></div></div></div>','bf-height','1364402pjNKxX','Body\x20Fat\x20','translateX(1.25rem)','<br>','resize','potassium','modal-actions','Analyze\x20the\x20nutrition\x20for\x20the\x20following\x20meal:\x20','parse','recipes','text','No\x20content\x20returned\x20from\x20API.','value=\x22','key','Sedentary','<select\x20id=\x22','Edit\x20Name','\x22\x20onblur=\x22','recipe-output','<p\x20class=\x22text-red-400\x20text-center\x22>Fill\x20required\x20fields.</p>','current-date','\x20class=\x22input-field\x20w-full\x20border\x20p-3\x20rounded-lg\x20outline-none\x20focus:ring-2\x20focus:ring-primary\x20transition\x20text-main\x22>','calculateCycle','light','join','An\x20error\x20occurred:\x20','opacity','nutrition-input','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Calcium</span>\x20<span><span\x20class=\x22text-main\x22>','<p\x20class=\x22text-2xl\x20font-bold\x20text-center\x22>','iw-gender','<p\x20class=\x22text-red-400\x20text-center\x22>Please\x20enter\x20a\x20valid\x20date\x20and\x20cycle\x20length.</p>','numeric','meal-url-input','userName','N/A','.accordion-item','theme','<input\x20type=\x22','protein-activity','json','candidates','Please\x20fill\x20all\x20fields.','#settings-overlay\x20i[data-lucide=\x22sun\x22],\x20#settings-overlay\x20i[data-lucide=\x22moon\x22]','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-main\x22>Calories</span>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-2xl\x20font-bold\x20text-main\x22>','Ideal\x20Weight\x20Result','Contact\x20Us','active','<p\x20class=\x22text-red-400\x20text-center\x22>Height\x20must\x20be\x20greater\x20than\x20152cm.</p>','parentElement','<span\x20class=\x22dv\x22>','foodItem','Analyzing...','getElementById','setItem','<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20generate\x20a\x20response.\x20Please\x20try\x20again.</p>','112594xOqFMw','transform','modal-cancel-btn','API\x20Limit\x20Reached','<div\x20class=\x22nutrition-label\x20glass-card\x20skeleton\x22><div\x20class=\x22header\x22><div\x20class=\x22skeleton-title\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20w-1/3\x20mt-2\x20bg-gray-700\x20rounded\x22></div></div><div\x20class=\x22space-y-4\x20mt-4\x22><div\x20class=\x22skeleton-line\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20bg-gray-700\x20rounded\x22></div><div\x20class=\x22skeleton-line\x20w-2/3\x20bg-gray-700\x20rounded\x20ml-6\x22></div><div\x20class=\x22skeleton-line\x20w-1/2\x20bg-gray-700\x20rounded\x22></div></div></div>','data-lucide','<div\x20class=\x22flex\x20items-center\x20gap-4\x20mb-6\x22><i\x20data-lucide=\x22calculator\x22\x20class=\x22w-8\x20h-8\x20text-primary\x22></i><div><h2\x20class=\x22text-3xl\x20font-bold\x20text-main\x22>Health\x20Calculators</h2><p\x20class=\x22text-sub\x22>A\x20suite\x20of\x20tools\x20to\x20help\x20you\x20track\x20your\x20health\x20metrics.</p></div></div><div\x20id=\x22calculator-accordion\x22\x20class=\x22space-y-4\x22></div><div\x20id=\x22scroll-hint\x22\x20class=\x22hidden\x20text-center\x20mt-8\x20text-sub\x20animate-bounce\x22><i\x20data-lucide=\x22arrow-down\x22\x20class=\x22w-6\x20h-6\x20mx-auto\x22></i><p>Scroll\x20for\x20more</p></div>','last-period','</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22edit-name-btn\x22\x20class=\x22p-1\x20rounded-full\x20hover:bg-card\x20mt-2\x22><i\x20data-lucide=\x22pencil\x22\x20class=\x22w-4\x20h-4\x20text-sub\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x22>Welcome\x20to\x20your\x20health\x20hub!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22font-bold\x20text-sub\x20px-1\x20text-sm\x20uppercase\x20tracking-wider\x22>Settings</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20justify-between\x20items-center\x20p-4\x20bg-card\x20border-card\x20border\x20rounded-lg\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20data-lucide=\x22sun\x22\x20class=\x22w-5\x20h-5\x20mr-4\x20text-sub\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-main\x22>Theme</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22theme-toggle-btn\x22\x20class=\x22relative\x20inline-flex\x20items-center\x20h-6\x20rounded-full\x20w-11\x20transition-colors\x20bg-gray-400\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22inline-block\x20w-4\x20h-4\x20transform\x20bg-white\x20rounded-full\x20transition-transform\x22\x20id=\x22theme-toggle-indicator\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22font-bold\x20text-sub\x20px-1\x20text-sm\x20uppercase\x20tracking-wider\x22>Information</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22#about\x22\x20class=\x22settings-nav-item\x20flex\x20justify-between\x20items-center\x20p-4\x20bg-card\x20border-card\x20border\x20rounded-lg\x20hover:border-primary\x20transition\x20glass-card\x22><div\x20class=\x22flex\x20items-center\x22><i\x20data-lucide=\x22info\x22\x20class=\x22w-5\x20h-5\x20mr-4\x20text-sub\x22></i><span\x20class=\x22text-main\x22>About\x20Us</span></div><i\x20data-lucide=\x22chevron-right\x22\x20class=\x22w-5\x20h-5\x20text-sub\x22></i></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22#contact\x22\x20class=\x22settings-nav-item\x20flex\x20justify-between\x20items-center\x20p-4\x20bg-card\x20border-card\x20border\x20rounded-lg\x20hover:border-primary\x20transition\x20glass-card\x22><div\x20class=\x22flex\x20items-center\x22><i\x20data-lucide=\x22mail\x22\x20class=\x22w-5\x20h-5\x20mr-4\x20text-sub\x22></i><span\x20class=\x22text-main\x22>Contact\x20Us</span></div><i\x20data-lucide=\x22chevron-right\x22\x20class=\x22w-5\x20h-5\x20text-sub\x22></i></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22#faq\x22\x20class=\x22settings-nav-item\x20flex\x20justify-between\x20items-center\x20p-4\x20bg-card\x20border-card\x20border\x20rounded-lg\x20hover:border-primary\x20transition\x20glass-card\x22><div\x20class=\x22flex\x20items-center\x22><i\x20data-lucide=\x22help-circle\x22\x20class=\x22w-5\x20h-5\x20mr-4\x20text-sub\x22></i><span\x20class=\x22text-main\x22>FAQ</span></div><i\x20data-lucide=\x22chevron-right\x22\x20class=\x22w-5\x20h-5\x20text-sub\x22></i></a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<footer\x20class=\x22text-center\x20mt-12\x20text-sub\x20text-sm\x22>Made\x20with\x20❤️\x20by\x20<a\x20href=\x22https://www.instagram.com/ashutosh8877\x22\x20target=\x22_blank\x22\x20class=\x22text-primary\x20font-bold\x20hover:underline\x22>Ashutosh\x20Roy</a></footer>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','dataset','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Iron</span>\x20<span><span\x20class=\x22text-main\x22>','scrollHeight','log10','en-US','getItem','Maintenance\x20Calorie\x20','<strong>$1</strong>','calculateLBM','Generating...','nutrition','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22name-input\x22\x20type=\x22text\x22\x20value=\x22','rotate-180','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x20indent\x22><span\x20class=\x22text-sub\x22>Trans\x20Fat</span>\x20<span\x20class=\x22text-sub\x22>','innerHTML','cholesterol','calculateProtein','\x22\x20class=\x22input-field\x20w-full\x20border\x20p-3\x20rounded-lg\x20outline-none\x20focus:ring-2\x20focus:ring-primary\x20transition\x20text-main\x22>','nextElementSibling','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Total\x20Carbohydrate</span>\x20<span><span\x20class=\x22text-main\x22>','contains','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Cholesterol</span>\x20<span><span\x20class=\x22text-main\x22>','</div><button\x20data-func=\x22','substring','keypress','</p><p\x20class=\x22text-sub\x20text-center\x22>Estimated\x20Ovulation</p><p\x20class=\x22font-bold\x20mt-4\x20text-center\x22>','number','/api/gemini-proxy','moon','totalSugars','user-display-name','.calculator-btn','maxHeight','charAt','.page','Neck\x20(cm)','\x22\x20class=\x22calculator-btn\x20mt-4\x20btn-primary\x22>Calculate</button></div></div>','BMR\x20Result','.nav-item-mobile','show','addEventListener','replace','</span>\x20','suggestions','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Protein</span>\x20<span><span\x20class=\x22text-main\x22>','<p\x20class=\x22text-red-400\x20text-center\x22>Please\x20fill\x20all\x20fields.</p>','</div>','</p></div><div><h4\x20class=\x22font-bold\x20text-green-400\x22>Health\x20Improvement:</h4><p\x20class=\x22text-sub\x22>','classList','header-title','cycle-length','<div\x20class=\x22nutrition-label\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22capitalize\x20text-main\x22>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-8\x20rounded-2xl\x20glass-card\x20max-w-3xl\x20mx-auto\x20animate-fade-in\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-3xl\x20font-bold\x20text-main\x20mb-6\x20text-center\x22>Frequently\x20Asked\x20Questions</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22faq-accordion\x22\x20class=\x22space-y-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-item\x20border-card\x20border\x20rounded-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22accordion-header\x20w-full\x20text-left\x20p-4\x20font-semibold\x20flex\x20justify-between\x20items-center\x20text-main\x22><span>How\x20accurate\x20is\x20the\x20nutrition\x20analysis?</span><i\x20data-lucide=\x22chevron-down\x22\x20class=\x22transform\x20transition-transform\x20text-sub\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-content\x20px-4\x20pb-4\x20text-sub\x22><p\x20class=\x22pt-2\x22>Our\x20nutrition\x20analysis\x20is\x20based\x20on\x20our\x20own\x20trusted\x20and\x20verified\x20database,\x20compiled\x20from\x20reliable\x20nutritional\x20sources\x20and\x20standards.\x20While\x20we\x20aim\x20for\x20high\x20accuracy,\x20all\x20data\x20should\x20be\x20considered\x20an\x20estimate.\x20For\x20medical\x20or\x20clinical\x20decisions,\x20we\x20recommend\x20consulting\x20a\x20certified\x20nutritionist\x20or\x20healthcare\x20professional.</p></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-item\x20border-card\x20border\x20rounded-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22accordion-header\x20w-full\x20text-left\x20p-4\x20font-semibold\x20flex\x20justify-between\x20items-center\x20text-main\x22><span>Is\x20my\x20data\x20stored?</span><i\x20data-lucide=\x22chevron-down\x22\x20class=\x22transform\x20transition-transform\x20text-sub\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-content\x20px-4\x20pb-4\x20text-sub\x22><p\x20class=\x22pt-2\x22>No,\x20we\x20do\x20not\x20track\x20or\x20store\x20your\x20personal\x20health\x20data.\x20Your\x20name\x20is\x20stored\x20locally\x20on\x20your\x20device\x20for\x20a\x20personalized\x20experience.\x20All\x20requests\x20are\x20securely\x20proxied,\x20and\x20no\x20sensitive\x20information\x20is\x20saved\x20on\x20our\x20servers.\x20Your\x20privacy\x20and\x20data\x20safety\x20are\x20our\x20top\x20priorities.</p></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-item\x20border-card\x20border\x20rounded-lg\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22accordion-header\x20w-full\x20text-left\x20p-4\x20font-semibold\x20flex\x20justify-between\x20items-center\x20text-main\x22><span>Can\x20I\x20use\x20this\x20app\x20offline?</span><i\x20data-lucide=\x22chevron-down\x22\x20class=\x22transform\x20transition-transform\x20text-sub\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22accordion-content\x20px-4\x20pb-4\x20text-sub\x22><p\x20class=\x22pt-2\x22>The\x20health\x20calculators\x20and\x20basic\x20UI\x20will\x20function\x20offline.\x20However,\x20any\x20feature\x20that\x20requires\x20API\x20\x20(like\x20nutrition\x20lookup,\x20meal\x20analysis,\x20and\x20recipe\x20generation)\x20requires\x20an\x20active\x20internet\x20connection\x20to\x20communicate\x20with\x20our\x20server.</p></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','generate-recipe-btn','target','Analyze\x20nutrition\x20for\x20\x22','nutrition-output','Lean\x20Body\x20Mass\x20','options','dark','add','Protein\x20Intake\x20','Lean\x20Body\x20Mass\x20Result','calories','Failed\x20to\x20call\x20serverless\x20function:','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22bg-card\x20border-card\x20p-6\x20rounded-2xl\x20glass-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20gap-4\x20mb-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20data-lucide=\x22utensils-crossed\x22\x20class=\x22w-8\x20h-8\x20text-primary\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-2xl\x20font-bold\x20text-main\x22>Know\x20Your\x20Meal</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sub\x22>Paste\x20a\x20recipe\x20URL\x20or\x20list\x20ingredients\x20to\x20analyze\x20your\x20entire\x20meal.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22space-y-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22meal-url-input\x22\x20type=\x22text\x22\x20placeholder=\x22Paste\x20a\x20recipe\x20URL\x22\x20class=\x22input-field\x20w-full\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22relative\x22><div\x20class=\x22absolute\x20inset-0\x20flex\x20items-center\x22><div\x20class=\x22w-full\x20border-t\x20border-card\x22></div></div><div\x20class=\x22relative\x20flex\x20justify-center\x22><span\x20class=\x22bg-card\x20px-2\x20text-sm\x20text-sub\x22>OR</span></div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22meal-ingredients-input\x22\x20placeholder=\x22List\x20ingredients\x20and\x20quantities...\x22\x20class=\x22input-field\x20w-full\x20h-32\x20border\x20rounded-lg\x20px-4\x20py-3\x20focus:ring-2\x20focus:ring-primary\x20outline-none\x20transition\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22analyze-meal-btn\x22\x20class=\x22btn-primary\x20w-full\x20flex\x20items-center\x20justify-center\x22><i\x20data-lucide=\x22brain-circuit\x22\x20class=\x22w-5\x20h-5\x20mr-2\x22></i>Analyze\x20Meal</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22meal-output\x22\x20class=\x22mt-8\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>','calculateBMI','.nav-item-desktop,\x20.nav-item-mobile,\x20.settings-nav-item','</p><p\x20class=\x22text-sub\x20text-center\x22>Fertile\x20Window</p>','Dashboard','</span><i\x20data-lucide=\x22chevron-down\x22\x20class=\x22transform\x20transition-transform\x20text-sub\x22></i></button><div\x20class=\x22accordion-content\x20px-4\x20pb-4\x22><div\x20class=\x22grid\x20grid-cols-1\x20sm:grid-cols-2\x20gap-4\x20mt-4\x22>','modal-message','getAttribute','setDate','modal-save-btn','modal-close-btn','remove','sun','bmi-height','<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20parse\x20the\x20meal\x20analysis.</p>','faq','className','percent','protein','\x22\x20id=\x22','306714oGoaaG','\x22\x20class=\x22w-5\x20h-5\x20mr-3\x22></i>\x20','Ingredients:\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mb-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-4xl\x20font-bold\x20text-main\x22>Hello,\x20','toLocaleDateString','\x20kg</p>','visible','Function\x20Error','</li></ul>','calculator','click','icon','BMI\x20Result','gender','location','I\x27m\x20craving\x20','\x22\x20placeholder=\x22','Very\x20Active','Please\x20enter\x20a\x20valid\x20weight.','<div\x20class=\x22mt-8\x20bg-card\x20p-6\x20rounded-xl\x20border\x20border-card\x20glass-card\x22><h3\x20class=\x22text-xl\x20font-semibold\x20mb-4\x20flex\x20items-center\x20text-main\x22><i\x20data-lucide=\x22lightbulb\x22\x20class=\x22w-6\x20h-6\x20mr-3\x20text-primary\x22></i>AI\x20Suggestions</h3><div\x20class=\x22space-y-4\x22><div><h4\x20class=\x22font-bold\x20text-primary\x22>Taste\x20Improvement:</h4><p\x20class=\x22text-sub\x22>','translate-x-full','long','<li>$1</li>','dietaryFiber','select','.settings-nav-item','<i\x20data-lucide=\x22bar-chart-3\x22\x20class=\x22w-5\x20h-5\x20mr-2\x22></i>Analyze','overflow-hidden','forEach','bg-primary','Weight\x20(kg)','totalFat','food','meal-ingredients-input','calcium','querySelector','match','message','hash','type','bmi','neck','lbm-gender','bf-waist','.\x20Return\x20ONLY\x20a\x20JSON\x20object\x20with\x20two\x20top-level\x20keys:\x20\x22nutrition\x22\x20and\x20\x22suggestions\x22.\x20The\x20\x22nutrition\x22\x20object\x20must\x20be\x20a\x20flat\x20JSON\x20object\x20with\x20the\x20following\x20keys:\x20foodItem\x20(use\x20the\x20meal\x20description\x20as\x20the\x20value),\x20servingSize\x20(e.g.,\x20\x221\x20serving\x22),\x20calories\x20(as\x20a\x20single\x20number,\x20not\x20an\x20object),\x20totalFat,\x20saturatedFat,\x20transFat,\x20cholesterol,\x20sodium,\x20totalCarbohydrate,\x20dietaryFiber,\x20totalSugars,\x20protein,\x20vitaminD,\x20calcium,\x20iron,\x20and\x20potassium.\x20Use\x20\x22N/A\x22\x20for\x20any\x20unknown\x20values.\x20The\x20\x22suggestions\x22\x20object\x20should\x20contain\x20two\x20string\x20properties:\x20\x22taste\x22\x20for\x20taste\x20improvements\x20and\x20\x22health\x22\x20for\x20health\x20improvements.','8319048jcekbz','sodium','textContent','calories-gender','saturatedFat','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22modal-save-btn\x22\x20class=\x22btn-primary\x20w-full\x22>Save</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','totalCarbohydrate','male','general','toggle','preventDefault','Hello,\x20','.accordion-content','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22modal-cancel-btn\x22\x20class=\x22bg-gray-500\x20text-white\x20font-bold\x20py-2\x20px-4\x20rounded-lg\x20w-1/2\x22>Cancel</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22modal-save-btn\x22\x20class=\x22btn-primary\x20w-1/2\x22>Save</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','href','status','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-center\x20gap-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20id=\x22user-display-name\x22\x20class=\x22text-2xl\x20font-bold\x20text-main\x20pt-2\x22>','createIcons','2878362LVAnBz','craving-input','toLowerCase','bmr-age','<div\x20class=\x22bg-card\x20border-card\x20border\x20p-4\x20md:p-6\x20rounded-xl\x20ai-content\x20glass-card\x22>','<p\x20class=\x22text-red-400\x20text-center\x22>Please\x20enter\x20valid\x20values.</p>','bf-weight','value','i[data-lucide=\x22chevron-down\x22]','onload','short','scroll-hint','Ideal\x20Weight\x20','calculateIdealWeight','recipe','</p>','iron','calculateBMR','Maintenance\x20Calories','querySelectorAll','Age','meal','<i\x20data-lucide=\x22brain-circuit\x22\x20class=\x22w-5\x20h-5\x20mr-2\x22></i>\x20Analyze\x20Meal','<p\x20class=\x22text-red-400\x20text-center\x22>Could\x20not\x20calculate\x20based\x20on\x20measurements.</p>','weight','trim','9WkqYyV','bf-gender','ruler','Error','Underweight','drumstick','BMI\x20','name','cycle-cycle-length','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20p-4\x20md:p-6\x20border-b\x20border-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20class=\x22text-xl\x20font-bold\x20text-main\x22>Profile\x20&\x20Settings</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22profile-close-btn\x22\x20class=\x22p-2\x20rounded-full\x20hover:bg-card\x22><i\x20data-lucide=\x22x\x22\x20class=\x22text-sub\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22p-4\x20md:p-6\x20space-y-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-center\x20space-y-2\x20relative\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22settings-user-avatar\x22\x20class=\x22w-24\x20h-24\x20rounded-full\x20bg-primary\x20text-text-on-primary\x20flex\x20items-center\x20justify-center\x20text-5xl\x20font-bold\x20border-4\x20border-primary-hover\x20mx-auto\x22>','Lightly\x20Active','</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Potassium</span>\x20<span><span\x20class=\x22text-main\x22>','toUpperCase','protein-weight','body'];_0x5dd0=function(){return _0x1c84dd;};return _0x5dd0();}async function callGeminiApi(_0xef96ae,_0x525eae=_0x20fffe(0x107)){const _0x21a11e=_0x20fffe,_0x48680d=_0x21a11e(0x98);try{const _0x543121=await fetch(_0x48680d,{'method':_0x21a11e(0x15d),'headers':{'Content-Type':'application/json'},'body':JSON['stringify']({'prompt':_0xef96ae,'type':_0x525eae})});if(!_0x543121['ok']){const _0x51fe24=await _0x543121['json']();console[_0x21a11e(0x142)](_0x21a11e(0x178),_0x51fe24);const _0x2a3b8a=_0x51fe24[_0x21a11e(0x142)]?.[_0x21a11e(0xf7)]||'API\x20request\x20failed:\x20'+_0x543121[_0x21a11e(0x10e)];return _0x543121['status']===0x1ad?showModal(_0x21a11e(0x1d8),'The\x20request\x20limit\x20for\x20the\x20API\x20key\x20has\x20been\x20reached.\x20Please\x20try\x20again\x20later.'):showModal('API\x20Error',_0x21a11e(0x1b6)+_0x2a3b8a),null;}const _0x2e5cf6=await _0x543121[_0x21a11e(0x1c5)]();if(_0x2e5cf6[_0x21a11e(0x1c6)]&&_0x2e5cf6['candidates'][_0x21a11e(0x177)]>0x0&&_0x2e5cf6[_0x21a11e(0x1c6)][0x0][_0x21a11e(0x148)]['parts'][_0x21a11e(0x177)]>0x0)return _0x2e5cf6[_0x21a11e(0x1c6)][0x0][_0x21a11e(0x148)][_0x21a11e(0x13c)][0x0]['text'];throw new Error(_0x21a11e(0x1a8));}catch(_0x406e35){return console[_0x21a11e(0x142)](_0x21a11e(0xbd),_0x406e35),showModal(_0x21a11e(0xd9),_0x21a11e(0x15c)),null;}}function checkScrollHint(){const _0x1a2ab4=_0x20fffe,_0x38ea8c=document[_0x1a2ab4(0x1d2)](_0x1a2ab4(0xdb)),_0x2b93e4=document[_0x1a2ab4(0x1d2)](_0x1a2ab4(0x11c));if(_0x38ea8c&&_0x2b93e4){const _0x1ebcea=_0x38ea8c[_0x1a2ab4(0x1e0)]>_0x38ea8c['clientHeight'];_0x2b93e4['classList'][_0x1a2ab4(0x108)]('hidden',!_0x1ebcea);}}const dailyValues={'totalFat':0x4e,'saturatedFat':0x14,'cholesterol':0x12c,'sodium':0x8fc,'totalCarbohydrate':0x113,'dietaryFiber':0x1c,'protein':0x32,'calcium':0x514,'iron':0x12,'potassium':0x125c,'vitaminD':0x14},renderNutritionLabel=_0x3b064a=>{const _0xb7e5a=_0x20fffe,_0x2a5198=(_0x565468,_0x1a00ff)=>{const _0x499457=_0x3f4b;if(dailyValues[_0x565468]&&parseFloat(_0x1a00ff)>0x0){const _0xc7ae79=parseFloat(_0x1a00ff)/dailyValues[_0x565468]*0x64;return _0x499457(0x1cf)+_0xc7ae79['toFixed'](0x0)+'%</span>';}return'';};return _0xb7e5a(0xb0)+(_0x3b064a[_0xb7e5a(0x1d0)]||_0xb7e5a(0x1c0))+'</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22text-sub\x22>Serving\x20Size\x20'+(_0x3b064a[_0xb7e5a(0x13e)]||_0xb7e5a(0x1c0))+_0xb7e5a(0x1c9)+(_0x3b064a[_0xb7e5a(0xbc)]??_0xb7e5a(0x1c0))+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x20text-right\x20text-sub\x20text-sm\x20font-bold\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20%\x20Daily\x20Value*\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Total\x20Fat</span>\x20<span><span\x20class=\x22text-main\x22>'+(_0x3b064a['totalFat']||_0xb7e5a(0x1c0))+'</span>\x20'+_0x2a5198(_0xb7e5a(0xf1),_0x3b064a['totalFat'])+_0xb7e5a(0x168)+(_0x3b064a[_0xb7e5a(0x103)]||'N/A')+_0xb7e5a(0xa7)+_0x2a5198(_0xb7e5a(0x103),_0x3b064a[_0xb7e5a(0x103)])+_0xb7e5a(0x1eb)+(_0x3b064a[_0xb7e5a(0x15a)]||_0xb7e5a(0x1c0))+_0xb7e5a(0x92)+(_0x3b064a['cholesterol']||_0xb7e5a(0x1c0))+_0xb7e5a(0xa7)+_0x2a5198(_0xb7e5a(0x1ed),_0x3b064a['cholesterol'])+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Sodium</span>\x20<span><span\x20class=\x22text-main\x22>'+(_0x3b064a[_0xb7e5a(0x100)]||_0xb7e5a(0x1c0))+'</span>\x20'+_0x2a5198('sodium',_0x3b064a['sodium'])+_0xb7e5a(0x90)+(_0x3b064a[_0xb7e5a(0x105)]||_0xb7e5a(0x1c0))+'</span>\x20'+_0x2a5198('totalCarbohydrate',_0x3b064a[_0xb7e5a(0x105)])+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x20indent\x22><span\x20class=\x22text-sub\x22>Dietary\x20Fiber</span>\x20<span><span\x20class=\x22text-sub\x22>'+(_0x3b064a['dietaryFiber']||_0xb7e5a(0x1c0))+_0xb7e5a(0xa7)+_0x2a5198(_0xb7e5a(0xe9),_0x3b064a[_0xb7e5a(0xe9)])+_0xb7e5a(0x16e)+(_0x3b064a[_0xb7e5a(0x9a)]||_0xb7e5a(0x1c0))+_0xb7e5a(0xa9)+(_0x3b064a[_0xb7e5a(0xd0)]||_0xb7e5a(0x1c0))+'</span>\x20'+_0x2a5198(_0xb7e5a(0xd0),_0x3b064a['protein'])+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22footer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22item\x22><span\x20class=\x22text-main\x22>Vitamin\x20D</span>\x20<span><span\x20class=\x22text-main\x22>'+(_0x3b064a['vitaminD']||_0xb7e5a(0x1c0))+_0xb7e5a(0xa7)+_0x2a5198(_0xb7e5a(0x141),_0x3b064a[_0xb7e5a(0x141)])+_0xb7e5a(0x1b9)+(_0x3b064a[_0xb7e5a(0xf4)]||_0xb7e5a(0x1c0))+_0xb7e5a(0xa7)+_0x2a5198('calcium',_0x3b064a[_0xb7e5a(0xf4)])+_0xb7e5a(0x1df)+(_0x3b064a[_0xb7e5a(0x121)]||_0xb7e5a(0x1c0))+'</span>\x20'+_0x2a5198(_0xb7e5a(0x121),_0x3b064a[_0xb7e5a(0x121)])+_0xb7e5a(0x136)+(_0x3b064a[_0xb7e5a(0x1a2)]||_0xb7e5a(0x1c0))+_0xb7e5a(0xa7)+_0x2a5198(_0xb7e5a(0x1a2),_0x3b064a[_0xb7e5a(0x1a2)])+'</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-xs\x20text-sub\x20mt-4\x22>*The\x20%\x20Daily\x20Value\x20(DV)\x20tells\x20you\x20how\x20much\x20a\x20nutrient\x20in\x20a\x20serving\x20of\x20food\x20contributes\x20to\x20a\x20daily\x20diet.\x202,000\x20calories\x20a\x20day\x20is\x20used\x20for\x20general\x20nutrition\x20advice.</p>\x0a\x20\x20\x20\x20</div>';},getSkeletonHTML=_0x4f0050=>{const _0x4e35e9=_0x20fffe;if(_0x4f0050===_0x4e35e9(0x1e8)||_0x4f0050===_0x4e35e9(0x126))return _0x4e35e9(0x1d9);if(_0x4f0050===_0x4e35e9(0x11f))return _0x4e35e9(0x19b);return'';},formatAiText=_0xf5f018=>_0xf5f018['replace'](/^### (.*$)/gim,'<h3>$1</h3>')[_0x20fffe(0xa6)](/^\* (.*$)/gim,_0x20fffe(0xe8))['replace'](/<\/li><li>/g,_0x20fffe(0x16f))[_0x20fffe(0xa6)](/<\/li>([^<])/g,'</li></ul>$1')[_0x20fffe(0xa6)](/^<li>/g,'<ul><li>')[_0x20fffe(0xa6)](/<\/li>$/g,_0x20fffe(0xda))[_0x20fffe(0xa6)](/\*\*(.*?)\*\*/g,_0x20fffe(0x1e5))['replace'](/\n/g,_0x20fffe(0x1a0))['replace'](/<br><ul>/g,'<ul>')[_0x20fffe(0xa6)](/<\/ul><br>/g,_0x20fffe(0x181))[_0x20fffe(0xa6)](/\*|#|\*\*\*/g,''),modal=document['getElementById'](_0x20fffe(0x16b));function showModal(_0x26bd94,_0x3f33c4,_0x5a7749=''){const _0x3a44bd=_0x20fffe;document[_0x3a44bd(0x1d2)]('modal-title')[_0x3a44bd(0x101)]=_0x26bd94,document[_0x3a44bd(0x1d2)](_0x3a44bd(0xc4))[_0x3a44bd(0x1ec)]=_0x3f33c4;const _0x5ae7fc=document['getElementById'](_0x3a44bd(0x1a3));if(_0x5a7749){_0x5ae7fc[_0x3a44bd(0x1ec)]=_0x5a7749;const _0x5df079=document[_0x3a44bd(0x1d2)](_0x3a44bd(0x1d7));if(_0x5df079)_0x5df079[_0x3a44bd(0xa5)](_0x3a44bd(0xdc),hideModal);}else _0x5ae7fc['innerHTML']='<button\x20id=\x22modal-close-btn\x22\x20class=\x22btn-primary\x20w-full\x22>Close</button>',document['getElementById']('modal-close-btn')[_0x3a44bd(0xa5)](_0x3a44bd(0xdc),hideModal);modal[_0x3a44bd(0xad)][_0x3a44bd(0xb9)](_0x3a44bd(0xa4)),setTimeout(()=>modal[_0x3a44bd(0xf5)](_0x3a44bd(0x18a))[_0x3a44bd(0xad)][_0x3a44bd(0xb9)](_0x3a44bd(0x18d)),0xa);}function hideModal(){const _0x171f95=_0x20fffe;modal[_0x171f95(0xf5)](_0x171f95(0x18a))[_0x171f95(0xad)][_0x171f95(0xc9)](_0x171f95(0x18d)),setTimeout(()=>modal['classList']['remove'](_0x171f95(0xa4)),0xc8);}function setLoadingState(_0x30c74a,_0x3f7618,_0x399892){const _0x2b657f=_0x20fffe;_0x3f7618?(_0x30c74a[_0x2b657f(0x164)]=!![],_0x30c74a[_0x2b657f(0x1ec)]='<span\x20class=\x22flex\x20items-center\x20justify-center\x22><i\x20data-lucide=\x22loader-circle\x22\x20class=\x22animate-spin\x20mr-2\x22></i>\x20'+_0x399892+'</span>'):(_0x30c74a['disabled']=![],_0x30c74a[_0x2b657f(0x1ec)]=_0x399892),typeof lucide!==_0x2b657f(0x17e)&&lucide['createIcons']();}window[_0x20fffe(0xbf)]=()=>{const _0x4a230f=_0x20fffe,_0x2aecc4=document[_0x4a230f(0x1d2)](_0x4a230f(0xcb))['value'],_0x2ba077=document[_0x4a230f(0x1d2)](_0x4a230f(0x186))[_0x4a230f(0x118)];if(_0x2aecc4>0x0&&_0x2ba077>0x0){const _0x1826d3=(_0x2ba077/(_0x2aecc4/0x64)**0x2)[_0x4a230f(0x13d)](0x1);let _0x38a885='';if(_0x1826d3<18.5)_0x38a885=_0x4a230f(0x12f);else{if(_0x1826d3<0x19)_0x38a885='Normal';else{if(_0x1826d3<0x1e)_0x38a885=_0x4a230f(0x158);else _0x38a885='Obesity';}}showModal(_0x4a230f(0xde),_0x4a230f(0x1ba)+_0x1826d3+_0x4a230f(0x153)+_0x38a885+_0x4a230f(0x120));}else showModal(_0x4a230f(0x12e),_0x4a230f(0x116));},window['calculateBMR']=()=>{const _0x2195fa=_0x20fffe,_0x3c885c=document[_0x2195fa(0x1d2)](_0x2195fa(0x114))[_0x2195fa(0x118)],_0x21b47f=document['getElementById']('bmr-gender')['value'],_0x46aeab=document[_0x2195fa(0x1d2)]('bmr-height')[_0x2195fa(0x118)],_0x5557e4=document['getElementById'](_0x2195fa(0x180))[_0x2195fa(0x118)];if(_0x3c885c>0x0&&_0x46aeab>0x0&&_0x5557e4>0x0){let _0x178e35=_0x21b47f===_0x2195fa(0x106)?88.362+13.397*_0x5557e4+4.799*_0x46aeab-5.677*_0x3c885c:447.593+9.247*_0x5557e4+3.098*_0x46aeab-4.33*_0x3c885c;showModal(_0x2195fa(0xa2),'<p\x20class=\x22text-2xl\x20font-bold\x20text-center\x22>'+_0x178e35[_0x2195fa(0x13d)](0x0)+_0x2195fa(0x160));}else showModal('Error',_0x2195fa(0xaa));},window[_0x20fffe(0x193)]=()=>{const _0x56a1de=_0x20fffe,_0x1c6275=document[_0x56a1de(0x1d2)](_0x56a1de(0x12c))[_0x56a1de(0x118)],_0x52c046=document[_0x56a1de(0x1d2)](_0x56a1de(0x19c))[_0x56a1de(0x118)],_0x3f703f=document[_0x56a1de(0x1d2)](_0x56a1de(0x117))['value'],_0xa4a497=document[_0x56a1de(0x1d2)]('bf-neck')[_0x56a1de(0x118)],_0x3d9f2f=document[_0x56a1de(0x1d2)](_0x56a1de(0xfd))['value'],_0x2e985a=document[_0x56a1de(0x1d2)](_0x56a1de(0x176))['value'];if(_0x52c046<=0x0||_0x3f703f<=0x0||_0xa4a497<=0x0||_0x3d9f2f<=0x0){showModal(_0x56a1de(0x12e),_0x56a1de(0x1b0));return;}let _0x36c99b=0x0;if(_0x1c6275==='male')_0x36c99b=0x1ef/(1.0324-0.19077*Math['log10'](_0x3d9f2f-_0xa4a497)+0.15456*Math[_0x56a1de(0x1e1)](_0x52c046))-0x1c2;else{if(_0x2e985a<=0x0){showModal(_0x56a1de(0x12e),'<p\x20class=\x22text-red-400\x20text-center\x22>Hip\x20measurement\x20is\x20required\x20for\x20females.</p>');return;}_0x36c99b=0x1ef/(1.29579-0.35004*Math['log10'](parseFloat(_0x3d9f2f)+parseFloat(_0x2e985a)-_0xa4a497)+0.221*Math[_0x56a1de(0x1e1)](_0x52c046))-0x1c2;}_0x36c99b>0x0&&_0x36c99b<0x64?showModal(_0x56a1de(0x147),'<p\x20class=\x22text-2xl\x20font-bold\x20text-center\x22>'+_0x36c99b['toFixed'](0x1)+_0x56a1de(0x146)):showModal(_0x56a1de(0x12e),_0x56a1de(0x128));},window[_0x20fffe(0x11e)]=()=>{const _0x452910=_0x20fffe,_0x44ca97=document[_0x452910(0x1d2)](_0x452910(0x1bb))[_0x452910(0x118)],_0xfe78ea=document[_0x452910(0x1d2)]('iw-height')[_0x452910(0x118)];if(_0xfe78ea<=0x98){showModal(_0x452910(0x12e),_0x452910(0x1cd));return;}let _0xc6bdd9=_0x44ca97===_0x452910(0x106)?0x32:45.5;const _0x1514f3=_0xc6bdd9+(_0xfe78ea/2.54-0x3c)*2.3;showModal(_0x452910(0x1ca),'<p\x20class=\x22text-2xl\x20font-bold\x20text-center\x22>'+_0x1514f3['toFixed'](0x1)+_0x452910(0xd7));},window['calculateLBM']=()=>{const _0x5a37dc=_0x20fffe,_0x570e52=document[_0x5a37dc(0x1d2)](_0x5a37dc(0xfc))[_0x5a37dc(0x118)],_0x1c4e88=document[_0x5a37dc(0x1d2)](_0x5a37dc(0x171))[_0x5a37dc(0x118)],_0x413add=document[_0x5a37dc(0x1d2)]('lbm-weight')['value'];if(_0x1c4e88<=0x0||_0x413add<=0x0){showModal(_0x5a37dc(0x12e),_0x5a37dc(0x116));return;}let _0x45933d=_0x570e52==='male'?0.407*_0x413add+0.267*_0x1c4e88-19.2:0.252*_0x413add+0.473*_0x1c4e88-48.3;showModal(_0x5a37dc(0xbb),_0x5a37dc(0x1ba)+_0x45933d['toFixed'](0x1)+_0x5a37dc(0xd7));},window[_0x20fffe(0x1ee)]=()=>{const _0x7ab5b8=_0x20fffe,_0x1ed04f=document[_0x7ab5b8(0x1d2)](_0x7ab5b8(0x138))[_0x7ab5b8(0x118)],_0x43d515=document[_0x7ab5b8(0x1d2)](_0x7ab5b8(0x1c4))[_0x7ab5b8(0x118)];if(_0x1ed04f<=0x0){showModal('Error',_0x7ab5b8(0xe4));return;}const _0x4ba4cf={'sedentary':0.8,'lightly-active':1.2,'moderately-active':1.5,'very-active':1.8,'extra-active':2.2},_0x4ac350=_0x1ed04f*_0x4ba4cf[_0x43d515];showModal('Protein\x20Intake',_0x7ab5b8(0x1ba)+_0x4ac350[_0x7ab5b8(0x13d)](0x0)+_0x7ab5b8(0x144));},window[_0x20fffe(0x172)]=()=>{const _0x4a07d7=_0x20fffe,_0x21b17a=document[_0x4a07d7(0x1d2)]('calories-age')[_0x4a07d7(0x118)],_0x91a177=document['getElementById'](_0x4a07d7(0x102))[_0x4a07d7(0x118)],_0xfae486=document['getElementById']('calories-height')[_0x4a07d7(0x118)],_0x2f23b5=document[_0x4a07d7(0x1d2)]('calories-weight')[_0x4a07d7(0x118)],_0x2397f9=document[_0x4a07d7(0x1d2)]('calories-activity')[_0x4a07d7(0x118)];if(_0x21b17a<=0x0||_0xfae486<=0x0||_0x2f23b5<=0x0){showModal('Error',_0x4a07d7(0x1c7));return;}let _0x4ddf53=_0x91a177===_0x4a07d7(0x106)?88.362+13.397*_0x2f23b5+4.799*_0xfae486-5.677*_0x21b17a:447.593+9.247*_0x2f23b5+3.098*_0xfae486-4.33*_0x21b17a;const _0x446937={'sedentary':1.2,'lightly-active':1.375,'moderately-active':1.55,'very-active':1.725,'extra-active':1.9},_0x134d42=_0x4ddf53*_0x446937[_0x2397f9];showModal(_0x4a07d7(0x123),_0x4a07d7(0x1ba)+_0x134d42['toFixed'](0x0)+_0x4a07d7(0x160));},window['calculateCycle']=()=>{const _0x44da80=_0x20fffe,_0x3ae526=document['getElementById'](_0x44da80(0x188))[_0x44da80(0x118)],_0x1c92d5=parseInt(document[_0x44da80(0x1d2)](_0x44da80(0x133))[_0x44da80(0x118)]);if(!_0x3ae526||isNaN(_0x1c92d5)||_0x1c92d5<0x14||_0x1c92d5>0x2d){showModal(_0x44da80(0x12e),_0x44da80(0x1bc));return;}const _0x5619e9=new Date(_0x3ae526[_0x44da80(0xa6)](/-/g,'/')),_0x111f86=new Date(_0x5619e9);_0x111f86[_0x44da80(0xc6)](_0x5619e9['getDate']()+_0x1c92d5-0xe);const _0x34c6bd=new Date(_0x111f86);_0x34c6bd[_0x44da80(0xc6)](_0x111f86[_0x44da80(0x161)]()-0x5);const _0x2a3171=new Date(_0x111f86);_0x2a3171[_0x44da80(0xc6)](_0x111f86[_0x44da80(0x161)]()+0x1);const _0x330010=new Date(_0x5619e9);_0x330010['setDate'](_0x5619e9[_0x44da80(0x161)]()+_0x1c92d5);const _0x5ebe6f=_0x45caf3=>_0x45caf3[_0x44da80(0xd6)](_0x44da80(0x1e2),{'month':_0x44da80(0xe7),'day':_0x44da80(0x1bd)});showModal('Cycle\x20Estimate',_0x44da80(0x16d)+_0x5ebe6f(_0x330010)+'</p><p\x20class=\x22text-sub\x20text-center\x22>Next\x20Period\x20Start</p><p\x20class=\x22font-bold\x20mt-4\x20text-center\x20text-green-400\x22>'+_0x5ebe6f(_0x111f86)+_0x44da80(0x96)+_0x5ebe6f(_0x34c6bd)+_0x44da80(0x18c)+_0x5ebe6f(_0x2a3171)+_0x44da80(0xc1));},window[_0x20fffe(0x11a)]=()=>{const _0x3977da=_0x20fffe,_0x3d9591=document[_0x3977da(0x1d2)](_0x3977da(0x155)),_0xe05f13=document[_0x3977da(0x1d2)](_0x3977da(0x156));setupApp(),setTimeout(()=>{const _0x2a511e=_0x3977da;_0x3d9591&&(_0x3d9591[_0x2a511e(0x18f)][_0x2a511e(0x1b7)]='0',_0x3d9591[_0x2a511e(0xa5)](_0x2a511e(0x154),()=>{_0x3d9591['style']['display']='none';})),_0xe05f13&&(_0xe05f13[_0x2a511e(0x18f)]['visibility']=_0x2a511e(0xd8),_0xe05f13[_0x2a511e(0x18f)][_0x2a511e(0x1b7)]='1');},0x7d0);};
+function setupApp() {
+    initializeTheme();
+    renderAllPages(); // Render first to ensure elements exist
+    handleUserLogin(); // Check for user name on app start
+    setupNavigation();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.className = savedTheme;
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.className = newTheme;
+    localStorage.setItem('theme', newTheme);
+}
+
+function handleUserLogin() {
+    const userName = localStorage.getItem('userName');
+    if (!userName) {
+        // If no name is found, ask for it.
+        const message = `
+            <p class="text-sub mb-4">Welcome to Calverse! What should we call you?</p>
+            <input id="name-input" type="text" placeholder="Enter your name" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition text-main mb-4">
+        `;
+        const actions = `
+            <button id="modal-save-btn" class="btn-primary w-full">Save</button>
+        `;
+        showModal('Welcome!', message, actions);
+
+        document.getElementById('modal-save-btn').addEventListener('click', () => {
+            const newName = document.getElementById('name-input').value;
+            if (newName && newName.trim() !== '') {
+                localStorage.setItem('userName', newName.trim());
+                updateUIWithUserData();
+                hideModal();
+            }
+        });
+    } else {
+        // If a name exists, just update the UI.
+        updateUIWithUserData();
+    }
+}
+
+
+function updateUIWithUserData() {
+    const userName = localStorage.getItem('userName') || 'User';
+    const userInitial = userName.charAt(0).toUpperCase();
+
+    const userAvatar = document.getElementById('user-avatar');
+    if (userAvatar) {
+        userAvatar.textContent = userInitial;
+    }
+    
+    const currentDateEl = document.getElementById('current-date');
+    if(currentDateEl) currentDateEl.textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    
+    const dashboardGreeting = document.querySelector('#food h2');
+    if (dashboardGreeting) {
+        dashboardGreeting.textContent = `Hello, ${userName}!`;
+    }
+    
+    const settingsName = document.getElementById('user-display-name');
+    if (settingsName) {
+        settingsName.textContent = userName;
+    }
+
+    const settingsAvatar = document.getElementById('settings-user-avatar');
+    if(settingsAvatar) {
+        settingsAvatar.textContent = userInitial;
+    }
+}
+
+
+function setupNavigation() {
+    const navLinks = document.querySelectorAll('.nav-item-desktop, .nav-item-mobile, .settings-nav-item');
+    const pages = document.querySelectorAll('.page');
+    const headerTitle = document.getElementById('header-title');
+    const pageTitles = {
+        'food': 'Dashboard',
+        'meal': 'Meal Analyzer',
+        'recipes': 'Recipes & Cravings',
+        'calculator': 'Health Calculators',
+        'about': 'About Us',
+        'contact': 'Contact Us',
+        'faq': 'FAQ'
+    };
+
+    const updateActiveState = (pageId) => {
+        pageId = pageId || 'food';
+        pages.forEach(p => p.classList.toggle('active', p.id === pageId));
+        if (headerTitle) {
+            headerTitle.textContent = pageTitles[pageId] || 'Dashboard';
+        }
+        
+        document.querySelectorAll('.nav-item-desktop').forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${pageId}`));
+        document.querySelectorAll('.nav-item-mobile').forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${pageId}`));
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute('href').substring(1);
+            window.location.hash = pageId;
+        });
+    });
+
+    window.addEventListener('hashchange', () => updateActiveState(window.location.hash.substring(1)));
+    updateActiveState(window.location.hash.substring(1) || 'food');
+}
+
+function renderAllPages() {
+    const userName = localStorage.getItem('userName') || 'User';
+    const userInitial = userName.charAt(0).toUpperCase();
+    
+    document.getElementById('food').innerHTML = `
+        <div class="mb-8">
+            <h2 class="text-4xl font-bold text-main">Hello, ${userName}!</h2>
+        </div>
+        <div class="bg-card border-card p-6 rounded-2xl mb-8 glass-card">
+             <h3 class="text-xl font-bold text-main mb-2">Welcome back!</h3>
+             <p class="text-sub">"The only bad workout is the one that didn't happen."</p>
+        </div>
+        <div class="bg-card border-card p-6 rounded-2xl glass-card">
+            <div class="flex items-center gap-4 mb-6">
+                <i data-lucide="utensils" class="w-8 h-8 text-primary"></i>
+                <div>
+                    <h2 class="text-2xl font-bold text-main">Nutrition Lookup</h2>
+                    <p class="text-sub">Search for a food to find its nutrition information.</p>
+                </div>
+            </div>
+            <div class="relative mb-4">
+                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-sub"></i>
+                <input id="nutrition-input" type="text" placeholder="E.g., '100g Chicken Breast'" class="input-field w-full border rounded-lg pl-12 pr-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
+            </div>
+            <button id="get-nutrition-btn" class="btn-primary w-full flex items-center justify-center"><i data-lucide="bar-chart-3" class="w-5 h-5 mr-2"></i>Analyze</button>
+            <div id="nutrition-output" class="mt-8"></div>
+        </div>`;
+    
+    document.getElementById('meal').innerHTML = `
+        <div class="bg-card border-card p-6 rounded-2xl glass-card">
+            <div class="flex items-center gap-4 mb-6">
+                <i data-lucide="utensils-crossed" class="w-8 h-8 text-primary"></i>
+                <div>
+                    <h2 class="text-2xl font-bold text-main">Know Your Meal</h2>
+                    <p class="text-sub">Paste a recipe URL or list ingredients to analyze your entire meal.</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <input id="meal-url-input" type="text" placeholder="Paste a recipe URL" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
+                <div class="relative"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-card"></div></div><div class="relative flex justify-center"><span class="bg-card px-2 text-sm text-sub">OR</span></div></div>
+                <textarea id="meal-ingredients-input" placeholder="List ingredients and quantities..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <button id="analyze-meal-btn" class="btn-primary w-full flex items-center justify-center"><i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i>Analyze Meal</button>
+            </div>
+            <div id="meal-output" class="mt-8"></div>
+        </div>`;
+
+    document.getElementById('recipes').innerHTML = `
+        <div class="flex items-center gap-4 mb-6">
+            <i data-lucide="notebook-pen" class="w-8 h-8 text-primary"></i>
+            <div>
+                <h2 class="text-2xl font-bold text-main">Recipes & Cravings</h2>
+                <p class="text-sub">Find healthy recipes or alternatives to your cravings.</p>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-card border-card p-6 rounded-xl glass-card">
+                <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="chef-hat" class="w-6 h-6 mr-3 text-primary"></i>Recipe Generator</h3>
+                <textarea id="recipe-ingredients-input" placeholder="What ingredients do you have?&#10;e.g., chicken breast, broccoli, soy sauce" class="input-field w-full h-32 border rounded-lg px-4 py-3 mb-4 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <button id="generate-recipe-btn" class="btn-primary w-full">Generate Recipe</button>
+            </div>
+            <div class="bg-card border-card p-6 rounded-xl glass-card">
+                <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="cookie" class="w-6 h-6 mr-3 text-primary"></i>Craving Solver</h3>
+                <input id="craving-input" type="text" placeholder="What are you craving? e.g., Pizza" class="input-field w-full border rounded-lg px-4 py-3 mb-4 focus:ring-2 focus:ring-primary outline-none transition">
+                <button id="solve-craving-btn" class="btn-primary w-full">Find Healthy Alternative</button>
+            </div>
+        </div>
+        <div id="recipe-output" class="mt-8"></div>`;
+
+    document.getElementById('calculator').innerHTML = `<div class="flex items-center gap-4 mb-6"><i data-lucide="calculator" class="w-8 h-8 text-primary"></i><div><h2 class="text-3xl font-bold text-main">Health Calculators</h2><p class="text-sub">A suite of tools to help you track your health metrics.</p></div></div><div id="calculator-accordion" class="space-y-4"></div><div id="scroll-hint" class="hidden text-center mt-8 text-sub animate-bounce"><i data-lucide="arrow-down" class="w-6 h-6 mx-auto"></i><p>Scroll for more</p></div>`;
+    
+    document.getElementById('about').innerHTML = `
+        <div class="bg-card border-card p-8 rounded-2xl glass-card text-center animate-fade-in">
+            <h2 class="text-4xl font-bold text-main mb-4">About Calverse</h2>
+            <p class="text-sub leading-relaxed max-w-2xl mx-auto">At Calverse, our mission is to make healthy living clear, accessible, and practical for everyone. Whether you're tracking calories, exploring nutritious recipes, or understanding your health metrics, Calverse gives you the tools to take control of your wellness.
+
+We use our own trusted and verified database, built from reliable nutritional sources, to ensure that every recommendation and value you see is accurate and dependable.
+
+Because with the right information, making better health choices becomes easier  and living a healthier, happier life becomes possible for all.</p>
+        </div>`;
+
+    document.getElementById('contact').innerHTML = `
+        <div class="bg-card border-card p-8 rounded-2xl glass-card max-w-lg mx-auto animate-fade-in">
+            <h2 class="text-3xl font-bold text-main mb-4 text-center">Contact Us</h2>
+            <p class="text-sub mb-6 text-center">Have questions, feedback, or suggestions? We'd love to hear from you!</p>
+            <form class="space-y-4" onsubmit="event.preventDefault(); showModal('Message Sent!', '<p>Thank you for your feedback. We will get back to you shortly.</p>');">
+                <input type="text" placeholder="Your Name" required class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
+                <input type="email" placeholder="Your Email" required class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
+                <textarea placeholder="Your Message" required class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+        </div>`;
+
+    document.getElementById('faq').innerHTML = `
+        <div class="bg-card border-card p-8 rounded-2xl glass-card max-w-3xl mx-auto animate-fade-in">
+            <h2 class="text-3xl font-bold text-main mb-6 text-center">Frequently Asked Questions</h2>
+            <div id="faq-accordion" class="space-y-4">
+                <div class="accordion-item border-card border rounded-lg">
+                    <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center text-main"><span>How accurate is the nutrition analysis?</span><i data-lucide="chevron-down" class="transform transition-transform text-sub"></i></button>
+                    <div class="accordion-content px-4 pb-4 text-sub"><p class="pt-2">Our nutrition analysis is based on our own trusted and verified database, compiled from reliable nutritional sources and standards. While we aim for high accuracy, all data should be considered an estimate. For medical or clinical decisions, we recommend consulting a certified nutritionist or healthcare professional.</p></div>
+                </div>
+                <div class="accordion-item border-card border rounded-lg">
+                    <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center text-main"><span>Is my data stored?</span><i data-lucide="chevron-down" class="transform transition-transform text-sub"></i></button>
+                    <div class="accordion-content px-4 pb-4 text-sub"><p class="pt-2">No, we do not track or store your personal health data. Your name is stored locally on your device for a personalized experience. All requests are securely proxied, and no sensitive information is saved on our servers. Your privacy and data safety are our top priorities.</p></div>
+                </div>
+                <div class="accordion-item border-card border rounded-lg">
+                    <button class="accordion-header w-full text-left p-4 font-semibold flex justify-between items-center text-main"><span>Can I use this app offline?</span><i data-lucide="chevron-down" class="transform transition-transform text-sub"></i></button>
+                    <div class="accordion-content px-4 pb-4 text-sub"><p class="pt-2">The health calculators and basic UI will function offline. However, any feature that requires API  (like nutrition lookup, meal analysis, and recipe generation) requires an active internet connection to communicate with our server.</p></div>
+                </div>
+            </div>
+        </div>`;
+
+    document.getElementById('settings-overlay').innerHTML = `
+        <div class="flex items-center justify-between p-4 md:p-6 border-b border-card">
+            <h2 class="text-xl font-bold text-main">Profile & Settings</h2>
+            <button id="profile-close-btn" class="p-2 rounded-full hover:bg-card"><i data-lucide="x" class="text-sub"></i></button>
+        </div>
+        <div class="p-4 md:p-6 space-y-8">
+            <div class="text-center space-y-2 relative">
+                <div id="settings-user-avatar" class="w-24 h-24 rounded-full bg-primary text-text-on-primary flex items-center justify-center text-5xl font-bold border-4 border-primary-hover mx-auto">${userInitial}</div>
+                <div class="flex items-center justify-center gap-2">
+                    <h3 id="user-display-name" class="text-2xl font-bold text-main pt-2">${userName}</h3>
+                    <button id="edit-name-btn" class="p-1 rounded-full hover:bg-card mt-2"><i data-lucide="pencil" class="w-4 h-4 text-sub"></i></button>
+                </div>
+                <p class="text-sub">Welcome to your health hub!</p>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-bold text-sub px-1 text-sm uppercase tracking-wider">Settings</h4>
+                <div class="flex justify-between items-center p-4 bg-card border-card border rounded-lg glass-card">
+                    <div class="flex items-center">
+                        <i data-lucide="sun" class="w-5 h-5 mr-4 text-sub"></i>
+                        <span class="text-main">Theme</span>
+                    </div>
+                    <button id="theme-toggle-btn" class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors bg-gray-400">
+                        <span class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform" id="theme-toggle-indicator"></span>
+                    </button>
+                </div>
+            </div>
+
+             <div class="space-y-2">
+                 <h4 class="font-bold text-sub px-1 text-sm uppercase tracking-wider">Information</h4>
+                 <a href="#about" class="settings-nav-item flex justify-between items-center p-4 bg-card border-card border rounded-lg hover:border-primary transition glass-card"><div class="flex items-center"><i data-lucide="info" class="w-5 h-5 mr-4 text-sub"></i><span class="text-main">About Us</span></div><i data-lucide="chevron-right" class="w-5 h-5 text-sub"></i></a>
+                 <a href="#contact" class="settings-nav-item flex justify-between items-center p-4 bg-card border-card border rounded-lg hover:border-primary transition glass-card"><div class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-4 text-sub"></i><span class="text-main">Contact Us</span></div><i data-lucide="chevron-right" class="w-5 h-5 text-sub"></i></a>
+                 <a href="#faq" class="settings-nav-item flex justify-between items-center p-4 bg-card border-card border rounded-lg hover:border-primary transition glass-card"><div class="flex items-center"><i data-lucide="help-circle" class="w-5 h-5 mr-4 text-sub"></i><span class="text-main">FAQ</span></div><i data-lucide="chevron-right" class="w-5 h-5 text-sub"></i></a>
+             </div>
+            <footer class="text-center mt-12 text-sub text-sm">Made with ❤️ by <a href="https://www.instagram.com/ashutosh8877" target="_blank" class="text-primary font-bold hover:underline">Ashutosh Roy</a></footer>
+        </div>`;
+    
+    document.getElementById('profile-close-btn').addEventListener('click', () => {
+        document.getElementById('settings-overlay').classList.add('translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+    });
+    document.getElementById('profile-avatar-btn').addEventListener('click', () => {
+        document.getElementById('settings-overlay').classList.remove('translate-x-full');
+        document.body.classList.add('overflow-hidden');
+    });
+    document.querySelectorAll('.settings-nav-item').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('settings-overlay').classList.add('translate-x-full');
+            document.body.classList.remove('overflow-hidden');
+        });
+    });
+    document.getElementById('modal-close-btn').addEventListener('click', hideModal);
+    document.getElementById('theme-toggle-btn').addEventListener('click', () => {
+        toggleTheme();
+        updateThemeToggleUI();
+    });
+    updateThemeToggleUI();
+    setupSettingsLogic();
+    setupFeatureLogic();
+}
+
+function updateThemeToggleUI() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const toggleBtn = document.getElementById('theme-toggle-btn');
+    const indicator = document.getElementById('theme-toggle-indicator');
+    const themeIcon = document.querySelector('#settings-overlay i[data-lucide="sun"], #settings-overlay i[data-lucide="moon"]');
+    
+    if (isDark) {
+        toggleBtn.classList.remove('bg-gray-400');
+        toggleBtn.classList.add('bg-primary');
+        indicator.style.transform = 'translateX(1.25rem)';
+        if(themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+    } else {
+        toggleBtn.classList.add('bg-gray-400');
+        toggleBtn.classList.remove('bg-primary');
+        indicator.style.transform = 'translateX(0.125rem)';
+        if(themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+    }
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+function setupSettingsLogic() {
+    const editNameBtn = document.getElementById('edit-name-btn');
+    if (editNameBtn) {
+        editNameBtn.addEventListener('click', () => {
+            const currentName = localStorage.getItem('userName') || 'User';
+            const message = `
+                <input id="name-input" type="text" value="${currentName}" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition text-main mb-4">
+            `;
+            const actions = `
+                <button id="modal-cancel-btn" class="bg-gray-500 text-white font-bold py-2 px-4 rounded-lg w-1/2">Cancel</button>
+                <button id="modal-save-btn" class="btn-primary w-1/2">Save</button>
+            `;
+            showModal('Edit Name', message, actions);
+
+            document.getElementById('modal-save-btn').addEventListener('click', () => {
+                const newName = document.getElementById('name-input').value;
+                if (newName && newName.trim() !== '') {
+                    localStorage.setItem('userName', newName.trim());
+                    updateUIWithUserData();
+                    hideModal();
+                }
+            });
+            document.getElementById('modal-cancel-btn').addEventListener('click', hideModal);
+        });
+    }
+}
+
+function setupFeatureLogic() {
+    const calculators = [
+        { id: 'bmi', name: 'BMI ', icon: 'ruler', fields: [{id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}], func: 'calculateBMI' },
+        { id: 'bmr', name: 'BMR ', icon: 'flame', fields: [{id: 'age', placeholder: 'Age', type: 'number'}, {id: 'gender', type: 'select', options: ['Male', 'Female']}, {id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}], func: 'calculateBMR' },
+        { id: 'bf', name: 'Body Fat ', icon: 'percent', fields: [{id: 'gender', type: 'select', options: ['Male', 'Female']}, {id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}, {id: 'neck', placeholder: 'Neck (cm)', type: 'number'}, {id: 'waist', placeholder: 'Waist (cm)', type: 'number'}, {id: 'hip', placeholder: 'Hip (cm) (Females)', type: 'number'}], func: 'calculateBodyFat' },
+        { id: 'iw', name: 'Ideal Weight ', icon: 'target', fields: [ {id: 'gender', type: 'select', options: ['Male', 'Female']}, {id: 'height', placeholder: 'Height (cm)', type: 'number'} ], func: 'calculateIdealWeight' },
+        { id: 'lbm', name: 'Lean Body Mass ', icon: 'bone', fields: [ {id: 'gender', type: 'select', options: ['Male', 'Female']}, {id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'} ], func: 'calculateLBM' },
+        { id: 'protein', name: 'Protein Intake ', icon: 'drumstick', fields: [ {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}, {id: 'activity', type: 'select', options: ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extra Active']} ], func: 'calculateProtein' },
+        { id: 'calories', name: 'Maintenance Calorie ', icon: 'gauge-circle', fields: [ {id: 'age', placeholder: 'Age', type: 'number'}, {id: 'gender', type: 'select', options: ['Male', 'Female']}, {id: 'height', placeholder: 'Height (cm)', type: 'number'}, {id: 'weight', placeholder: 'Weight (kg)', type: 'number'}, {id: 'activity', type: 'select', options: ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extra Active']} ], func: 'calculateMaintenanceCalories' },
+        { id: 'cycle', name: 'Period & Ovulation ', icon: 'calendar-heart', fields: [ {id: 'last-period', placeholder: 'First Day of Last Period', type: 'date'}, {id: 'cycle-length', placeholder: 'Avg. Cycle Length', type: 'number', value: 28} ], func: 'calculateCycle' },
+    ];
+    const accordionContainer = document.getElementById('calculator-accordion');
+    if(accordionContainer) {
+        accordionContainer.innerHTML = calculators.map(calc => `
+            <div class="accordion-item border-card border rounded-lg glass-card"><button class="accordion-header w-full text-left p-4 font-semibold text-lg flex justify-between items-center transition-colors hover:text-primary text-main"><span class="flex items-center"><i data-lucide="${calc.icon}" class="w-5 h-5 mr-3"></i> ${calc.name}</span><i data-lucide="chevron-down" class="transform transition-transform text-sub"></i></button><div class="accordion-content px-4 pb-4"><div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">${calc.fields.map(f => f.type === 'select' ? `<select id="${calc.id}-${f.id}" class="input-field w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-primary transition text-main">${f.options.map(o => `<option value="${o.toLowerCase().replace(/ /g, '-')}">${o}</option>`).join('')}</select>` : `<input type="${f.type === 'date' ? 'text' : f.type}" onfocus="${f.type === 'date' ? "(this.type='date')" : ''}" onblur="${f.type === 'date' ? "(this.type='text')" : ''}" id="${calc.id}-${f.id}" placeholder="${f.placeholder}" ${f.value ? `value="${f.value}"` : ''} class="input-field w-full border p-3 rounded-lg outline-none focus:ring-2 focus:ring-primary transition text-main">`).join('')}</div><button data-func="${calc.func}" class="calculator-btn mt-4 btn-primary">Calculate</button></div></div>`).join('');
+    }
+    
+    // This logic now applies to ALL accordions, including the new FAQ one.
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i[data-lucide="chevron-down"]');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            // Close other accordions in the same group
+            const parentContainer = accordionItem.parentElement;
+            parentContainer.querySelectorAll('.accordion-item').forEach(item => {
+                if (item !== accordionItem) {
+                    item.querySelector('.accordion-content').style.maxHeight = null;
+                    const otherIcon = item.querySelector('i[data-lucide="chevron-down"]');
+                    if(otherIcon) otherIcon.classList.remove('rotate-180');
+                }
+            });
+
+            if (isOpen) {
+                content.style.maxHeight = null;
+                if(icon) icon.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                if(icon) icon.classList.add('rotate-180');
+            }
+        });
+    });
+    
+    document.querySelectorAll('.calculator-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const funcName = e.target.dataset.func;
+            if(window[funcName]) {
+                window[funcName]();
+            }
+        });
+    });
+
+    checkScrollHint();
+    window.addEventListener('resize', checkScrollHint);
+    
+    const getNutritionBtn = document.getElementById('get-nutrition-btn');
+    const nutritionInput = document.getElementById('nutrition-input');
+    const nutritionOutput = document.getElementById('nutrition-output');
+    const handleGetNutrition = async () => {
+        if (!nutritionInput.value.trim()) return;
+        setLoadingState(getNutritionBtn, true, 'Analyzing...');
+        nutritionOutput.innerHTML = getSkeletonHTML('nutrition');
+        const prompt = `Analyze nutrition for "${nutritionInput.value}". Return ONLY a JSON object with keys: foodItem, servingSize, calories (number), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, potassium. Use "N/A" for unknowns.`;
+        const result = await callGeminiApi(prompt);
+        if (result) {
+            try {
+                const jsonData = JSON.parse(result.match(/\{[\s\S]*\}/)[0]);
+                nutritionOutput.innerHTML = renderNutritionLabel(jsonData); 
+            } catch(e) { nutritionOutput.innerHTML = `<p class="text-red-400 text-center">Could not parse nutrition data. Try a more specific query.</p>`; }
+        } else { nutritionOutput.innerHTML = `<p class="text-red-400 text-center">Could not retrieve nutrition data. Please try again.</p>`; }
+        setLoadingState(getNutritionBtn, false, `<i data-lucide="bar-chart-3" class="w-5 h-5 mr-2"></i>Analyze`);
+    };
+    getNutritionBtn.addEventListener('click', handleGetNutrition);
+    nutritionInput.addEventListener('keypress', (e) => e.key === 'Enter' && handleGetNutrition());
+
+    const analyzeMealBtn = document.getElementById('analyze-meal-btn');
+    const mealOutput = document.getElementById('meal-output');
+    analyzeMealBtn.addEventListener('click', async () => {
+        const url = document.getElementById('meal-url-input').value.trim();
+        const ingredients = document.getElementById('meal-ingredients-input').value.trim();
+        if (!url && !ingredients) return;
+
+        setLoadingState(analyzeMealBtn, true, 'Analyzing Nutrition...');
+        mealOutput.innerHTML = getSkeletonHTML('meal'); // Show skeleton for nutrition label
+
+        const mealInput = url ? `URL: ${url}` : `Ingredients: ${ingredients}`;
+
+        // --- Step 1: Fetch Nutrition Data ---
+        const nutritionPrompt = `Analyze the nutrition for the following meal: ${mealInput}. Return ONLY a JSON object with a single top-level key: "nutrition". The "nutrition" object must be a flat JSON object with the following keys: foodItem (use the meal description as the value), servingSize (e.g., "1 serving"), calories (as a single number, not an object), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for any unknown values.`;
+
+        const nutritionResult = await callGeminiApi(nutritionPrompt, 'meal');
+
+        if (nutritionResult) {
+            try {
+                const nutritionData = JSON.parse(nutritionResult.match(/\{[\s\S]*\}/)[0]);
+                // Render the nutrition label first
+                mealOutput.innerHTML = renderNutritionLabel(nutritionData.nutrition, 'Total Meal Nutrition');
+
+                // --- Step 2: Fetch Suggestions ---
+                // Append a container for suggestions with a loading skeleton
+                const suggestionsContainer = document.createElement('div');
+                suggestionsContainer.id = 'suggestions-container';
+                suggestionsContainer.innerHTML = getSkeletonHTML('recipe'); // Re-using recipe skeleton for suggestions
+                mealOutput.appendChild(suggestionsContainer);
+
+                setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...'); // Update button text for the second step
+
+                const suggestionsPrompt = `Based on the following meal (${mealInput}), provide suggestions for taste and health improvements. Return ONLY a JSON object with a single top-level key "suggestions" which contains two string properties: "taste" and "health".`;
+                const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
+
+                if (suggestionsResult) {
+                     try {
+                        const suggestionsData = JSON.parse(suggestionsResult.match(/\{[\s\S]*\}/)[0]);
+                        const suggestionsHtml = `
+                            <div class="mt-8 bg-card p-6 rounded-xl border border-card glass-card">
+                                <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-primary"></i>AI Suggestions</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-bold text-primary">Taste Improvement:</h4>
+                                        <p class="text-sub">${suggestionsData.suggestions.taste}</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-green-400">Health Improvement:</h4>
+                                        <p class="text-sub">${suggestionsData.suggestions.health}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                        suggestionsContainer.innerHTML = suggestionsHtml;
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                     } catch (e) {
+                        suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not parse suggestions.</p>`;
+                     }
+                } else {
+                    suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not retrieve suggestions.</p>`;
+                }
+
+            } catch (e) {
+                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not parse the meal's nutrition data.</p>`;
+            }
+        } else {
+            mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not analyze the meal's nutrition.</p>`;
+        }
+
+        setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
+    });
+    
+    const recipeOutput = document.getElementById('recipe-output');
+    const setupRecipeButton = (btnId, inputId, promptFn) => {
+        const btn = document.getElementById(btnId);
+        btn.addEventListener('click', async () => {
+            const input = document.getElementById(inputId).value.trim();
+            if (!input) return;
+            const originalText = btn.innerHTML;
+            setLoadingState(btn, true, 'Generating...');
+            recipeOutput.innerHTML = getSkeletonHTML('recipe');
+            const result = await callGeminiApi(promptFn(input));
+            if (result) { recipeOutput.innerHTML = `<div class="bg-card border-card border p-4 md:p-6 rounded-xl ai-content glass-card">${formatAiText(result)}</div>`; } 
+            else { recipeOutput.innerHTML = `<p class="text-red-400 text-center">Could not generate a response. Please try again.</p>`; }
+            setLoadingState(btn, false, originalText);
+        });
+    };
+    setupRecipeButton('generate-recipe-btn', 'recipe-ingredients-input', (i) => `Create a healthy recipe using: ${i}. Be concise. Use markdown for formatting: '### Title', '### Ingredients', '### Instructions'. Use '*' for list items.`);
+    setupRecipeButton('solve-craving-btn', 'craving-input', (c) => `I'm craving ${c}. Suggest a healthy alternative recipe. Be concise and start directly with the recipe. Use markdown for formatting: '### Title', '### Why It\\'s Healthier', '### Ingredients', '### Instructions'. Use '*' for list items.`);
+    
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+async function callGeminiApi(prompt, type = 'general') {
+    // The API call now goes to our own serverless function.
+    const API_URL = '/api/gemini-proxy'; 
+    try {
+        const response = await fetch(API_URL, { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' }, 
+            // Send the prompt and type in the body
+            body: JSON.stringify({ prompt, type }) 
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("API Error:", errorData);
+            const errorMessage = errorData.error?.message || `API request failed: ${response.status}`;
+            if (response.status === 429) {
+                 showModal("API Limit Reached", "The request limit for the API key has been reached. Please try again later.");
+            } else {
+                showModal("API Error", `An error occurred: ${errorMessage}`);
+            }
+            return null;
+        }
+
+        const data = await response.json();
+        if (data.candidates && data.candidates.length > 0 && data.candidates[0].content.parts.length > 0) {
+            return data.candidates[0].content.parts[0].text;
+        }
+        throw new Error("No content returned from API.");
+    } catch (error) {
+        console.error('Failed to call serverless function:', error);
+        showModal("Function Error", "An error occurred while communicating with the server. Please retry ");
+        return null;
+    }
+}
+
+
+function checkScrollHint() {
+    const calcPage = document.getElementById('calculator');
+    const scrollHint = document.getElementById('scroll-hint');
+    if (calcPage && scrollHint) {
+        const isScrollable = calcPage.scrollHeight > calcPage.clientHeight;
+        scrollHint.classList.toggle('hidden', !isScrollable);
+    }
+}
+
+const dailyValues = {
+    totalFat: 78,
+    saturatedFat: 20,
+    cholesterol: 300,
+    sodium: 2300,
+    totalCarbohydrate: 275,
+    dietaryFiber: 28,
+    protein: 50,
+    calcium: 1300,
+    iron: 18,
+    potassium: 4700,
+    vitaminD: 20
+};
+
+const renderNutritionLabel = (data) => {
+    const getDV = (key, value) => {
+        if (dailyValues[key] && parseFloat(value) > 0) {
+            const dv = (parseFloat(value) / dailyValues[key]) * 100;
+            return `<span class="dv">${dv.toFixed(0)}%</span>`;
+        }
+        return '';
+    };
+
+    return `<div class="nutrition-label glass-card">
+        <div class="header">
+            <h1 class="capitalize text-main">${data.foodItem||'N/A'}</h1>
+            <div class="text-sub">Serving Size ${data.servingSize||'N/A'}</div>
+        </div>
+        <div class="item">
+            <span class="text-main">Calories</span> 
+            <span class="text-2xl font-bold text-main">${data.calories??'N/A'}</span>
+        </div>
+        <div class="item text-right text-sub text-sm font-bold">
+             % Daily Value*
+        </div>
+        <div class="item"><span class="text-main">Total Fat</span> <span><span class="text-main">${data.totalFat||'N/A'}</span> ${getDV('totalFat', data.totalFat)}</span></div>
+        <div class="item indent"><span class="text-sub">Saturated Fat</span> <span><span class="text-sub">${data.saturatedFat||'N/A'}</span> ${getDV('saturatedFat', data.saturatedFat)}</span></div>
+        <div class="item indent"><span class="text-sub">Trans Fat</span> <span class="text-sub">${data.transFat||'N/A'}</span></div>
+        <div class="item"><span class="text-main">Cholesterol</span> <span><span class="text-main">${data.cholesterol||'N/A'}</span> ${getDV('cholesterol', data.cholesterol)}</span></div>
+        <div class="item"><span class="text-main">Sodium</span> <span><span class="text-main">${data.sodium||'N/A'}</span> ${getDV('sodium', data.sodium)}</span></div>
+        <div class="item"><span class="text-main">Total Carbohydrate</span> <span><span class="text-main">${data.totalCarbohydrate||'N/A'}</span> ${getDV('totalCarbohydrate', data.totalCarbohydrate)}</span></div>
+        <div class="item indent"><span class="text-sub">Dietary Fiber</span> <span><span class="text-sub">${data.dietaryFiber||'N/A'}</span> ${getDV('dietaryFiber', data.dietaryFiber)}</span></div>
+        <div class="item indent"><span class="text-sub">Total Sugars</span> <span class="text-sub">${data.totalSugars||'N/A'}</span></div>
+        <div class="item"><span class="text-main">Protein</span> <span><span class="text-main">${data.protein||'N/A'}</span> ${getDV('protein', data.protein)}</span></div>
+        <div class="footer">
+            <div class="item"><span class="text-main">Vitamin D</span> <span><span class="text-main">${data.vitaminD||'N/A'}</span> ${getDV('vitaminD', data.vitaminD)}</span></div>
+            <div class="item"><span class="text-main">Calcium</span> <span><span class="text-main">${data.calcium||'N/A'}</span> ${getDV('calcium', data.calcium)}</span></div>
+            <div class="item"><span class="text-main">Iron</span> <span><span class="text-main">${data.iron||'N/A'}</span> ${getDV('iron', data.iron)}</span></div>
+            <div class="item"><span class="text-main">Potassium</span> <span><span class="text-main">${data.potassium||'N/A'}</span> ${getDV('potassium', data.potassium)}</span></div>
+        </div>
+        <p class="text-xs text-sub mt-4">*The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+    </div>`;
+};
+
+const getSkeletonHTML = (type) => {
+    if (type === 'nutrition' || type === 'meal') {
+        return `<div class="nutrition-label glass-card skeleton"><div class="header"><div class="skeleton-title bg-gray-700 rounded"></div><div class="skeleton-line w-1/3 mt-2 bg-gray-700 rounded"></div></div><div class="space-y-4 mt-4"><div class="skeleton-line bg-gray-700 rounded"></div><div class="skeleton-line bg-gray-700 rounded"></div><div class="skeleton-line w-2/3 bg-gray-700 rounded ml-6"></div><div class="skeleton-line w-1/2 bg-gray-700 rounded"></div></div></div>`;
+    }
+    if (type === 'recipe') {
+        return `<div class="bg-card border-card border p-6 rounded-xl glass-card skeleton"><div class="space-y-4"><div class="skeleton-title bg-gray-700 rounded"></div><div class="skeleton-line bg-gray-700 rounded"></div><div class="skeleton-line w-5/6 bg-gray-700 rounded"></div><div class="skeleton-line w-2/3 bg-gray-700 rounded"></div></div></div>`;
+    }
+    return '';
+};
+const formatAiText = (text) => text.replace(/^### (.*$)/gim, '<h3>$1</h3>').replace(/^\* (.*$)/gim, '<li>$1</li>').replace(/<\/li><li>/g, '</li></ul><ul><li>').replace(/<\/li>([^<])/g, '</li></ul>$1').replace(/^<li>/g, '<ul><li>').replace(/<\/li>$/g, '</li></ul>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>').replace(/<br><ul>/g, '<ul>').replace(/<\/ul><br>/g, '</ul>').replace(/\*|#|\*\*\*/g, '');
+
+const modal = document.getElementById('custom-modal');
+function showModal(title, messageHTML, actionsHTML = '') {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-message').innerHTML = messageHTML;
+    const actionsContainer = document.getElementById('modal-actions');
+    if (actionsHTML) {
+        actionsContainer.innerHTML = actionsHTML;
+        // Re-attach listener for close button if it's custom
+        const closeBtn = document.getElementById('modal-cancel-btn');
+        if (closeBtn) closeBtn.addEventListener('click', hideModal);
+    } else {
+        actionsContainer.innerHTML = `<button id="modal-close-btn" class="btn-primary w-full">Close</button>`;
+        document.getElementById('modal-close-btn').addEventListener('click', hideModal);
+    }
+    modal.classList.add('show');
+    setTimeout(() => modal.querySelector('div').classList.add('scale-100'), 10);
+}
+function hideModal() {
+    modal.querySelector('div').classList.remove('scale-100');
+    setTimeout(() => modal.classList.remove('show'), 200);
+}
+
+function setLoadingState(button, isLoading, loadingText) {
+    if (isLoading) {
+        button.disabled = true;
+        button.innerHTML = `<span class="flex items-center justify-center"><i data-lucide="loader-circle" class="animate-spin mr-2"></i> ${loadingText}</span>`;
+    } else {
+        button.disabled = false;
+        button.innerHTML = loadingText;
+    }
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
+window.calculateBMI = () => {
+    const h = document.getElementById('bmi-height').value;
+    const w = document.getElementById('bmi-weight').value;
+    if (h > 0 && w > 0) {
+        const bmi = (w / ((h / 100) ** 2)).toFixed(1);
+        let c = '';
+        if (bmi < 18.5) c = 'Underweight';
+        else if (bmi < 25) c = 'Normal';
+        else if (bmi < 30) c = 'Overweight';
+        else c = 'Obesity';
+        showModal('BMI Result', `<p class="text-2xl font-bold text-center">${bmi}</p><p class="text-sub text-center">${c}</p>`);
+    } else {
+        showModal('Error', `<p class="text-red-400 text-center">Please enter valid values.</p>`);
+    }
+};
+
+window.calculateBMR = () => {
+    const a = document.getElementById('bmr-age').value;
+    const g = document.getElementById('bmr-gender').value;
+    const h = document.getElementById('bmr-height').value;
+    const w = document.getElementById('bmr-weight').value;
+    if (a > 0 && h > 0 && w > 0) {
+        let bmr = g === 'male' ? (88.362 + (13.397 * w) + (4.799 * h) - (5.677 * a)) : (447.593 + (9.247 * w) + (3.098 * h) - (4.330 * a));
+        showModal('BMR Result', `<p class="text-2xl font-bold text-center">${bmr.toFixed(0)}</p><p class="text-sub text-center">calories/day</p>`);
+    } else {
+        showModal('Error', `<p class="text-red-400 text-center">Please fill all fields.</p>`);
+    }
+};
+
+window.calculateBodyFat = () => {
+    const g = document.getElementById('bf-gender').value;
+    const h = document.getElementById('bf-height').value;
+    const w = document.getElementById('bf-weight').value;
+    const n = document.getElementById('bf-neck').value;
+    const wa = document.getElementById('bf-waist').value;
+    const hi = document.getElementById('bf-hip').value;
+    if (h <= 0 || w <= 0 || n <= 0 || wa <= 0) {
+        showModal('Error', `<p class="text-red-400 text-center">Fill required fields.</p>`);
+        return;
+    }
+    let bfp = 0;
+    if (g === 'male') {
+        bfp = 495 / (1.0324 - 0.19077 * Math.log10(wa - n) + 0.15456 * Math.log10(h)) - 450;
+    } else {
+        if (hi <= 0) {
+            showModal('Error', `<p class="text-red-400 text-center">Hip measurement is required for females.</p>`);
+            return;
+        }
+        bfp = 495 / (1.29579 - 0.35004 * Math.log10(parseFloat(wa) + parseFloat(hi) - n) + 0.22100 * Math.log10(h)) - 450;
+    }
+    if (bfp > 0 && bfp < 100) {
+        showModal('Body Fat Result', `<p class="text-2xl font-bold text-center">${bfp.toFixed(1)}%</p><p class="text-sub text-center">Body Fat</p>`);
+    } else {
+        showModal('Error', `<p class="text-red-400 text-center">Could not calculate based on measurements.</p>`);
+    }
+};
+
+window.calculateIdealWeight = () => {
+    const g = document.getElementById('iw-gender').value;
+    const h = document.getElementById('iw-height').value;
+    if (h <= 152) {
+        showModal('Error', `<p class="text-red-400 text-center">Height must be greater than 152cm.</p>`);
+        return;
+    }
+    let base = g === 'male' ? 50 : 45.5;
+    const iw = base + (((h / 2.54) - 60) * 2.3);
+    showModal('Ideal Weight Result', `<p class="text-2xl font-bold text-center">${iw.toFixed(1)} kg</p>`);
+};
+
+window.calculateLBM = () => {
+    const g = document.getElementById('lbm-gender').value;
+    const h = document.getElementById('lbm-height').value;
+    const w = document.getElementById('lbm-weight').value;
+    if (h <= 0 || w <= 0) {
+        showModal('Error', `<p class="text-red-400 text-center">Please enter valid values.</p>`);
+        return;
+    }
+    let lbm = g === 'male' ? (0.407 * w) + (0.267 * h) - 19.2 : (0.252 * w) + (0.473 * h) - 48.3;
+    showModal('Lean Body Mass Result', `<p class="text-2xl font-bold text-center">${lbm.toFixed(1)} kg</p>`);
+};
+
+window.calculateProtein = () => {
+    const w = document.getElementById('protein-weight').value;
+    const act = document.getElementById('protein-activity').value;
+    if (w <= 0) {
+        showModal('Error', 'Please enter a valid weight.');
+        return;
+    }
+    const factors = { 'sedentary': 0.8, 'lightly-active': 1.2, 'moderately-active': 1.5, 'very-active': 1.8, 'extra-active': 2.2 };
+    const protein = w * factors[act];
+    showModal('Protein Intake', `<p class="text-2xl font-bold text-center">${protein.toFixed(0)} g</p><p class="text-sub text-center">per day</p>`);
+};
+
+window.calculateMaintenanceCalories = () => {
+    const a = document.getElementById('calories-age').value;
+    const g = document.getElementById('calories-gender').value;
+    const h = document.getElementById('calories-height').value;
+    const w = document.getElementById('calories-weight').value;
+    const act = document.getElementById('calories-activity').value;
+    if (a <= 0 || h <= 0 || w <= 0) {
+        showModal('Error', 'Please fill all fields.');
+        return;
+    }
+    let bmr = g === 'male' ? (88.362 + (13.397 * w) + (4.799 * h) - (5.677 * a)) : (447.593 + (9.247 * w) + (3.098 * h) - (4.330 * a));
+    const factors = { 'sedentary': 1.2, 'lightly-active': 1.375, 'moderately-active': 1.55, 'very-active': 1.725, 'extra-active': 1.9 };
+    const tdee = bmr * factors[act];
+    showModal('Maintenance Calories', `<p class="text-2xl font-bold text-center">${tdee.toFixed(0)}</p><p class="text-sub text-center">calories/day</p>`);
+};
+
+window.calculateCycle = () => {
+    const dStr = document.getElementById('cycle-last-period').value;
+    const c = parseInt(document.getElementById('cycle-cycle-length').value);
+    if (!dStr || isNaN(c) || c < 20 || c > 45) {
+        showModal('Error', `<p class="text-red-400 text-center">Please enter a valid date and cycle length.</p>`);
+        return;
+    }
+    const d = new Date(dStr.replace(/-/g, '\/'));
+    const o = new Date(d);
+    o.setDate(d.getDate() + c - 14);
+    const fs = new Date(o);
+    fs.setDate(o.getDate() - 5);
+    const fe = new Date(o);
+    fe.setDate(o.getDate() + 1);
+    const np = new Date(d);
+    np.setDate(d.getDate() + c);
+    const fDate = (dt) => dt.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+    showModal('Cycle Estimate', `<p class="font-bold mt-2 text-center text-red-400">${fDate(np)}</p><p class="text-sub text-center">Next Period Start</p><p class="font-bold mt-4 text-center text-green-400">${fDate(o)}</p><p class="text-sub text-center">Estimated Ovulation</p><p class="font-bold mt-4 text-center">${fDate(fs)} - ${fDate(fe)}</p><p class="text-sub text-center">Fertile Window</p>`);
+};
+
+
+window.onload = () => {
+    const preloader = document.getElementById('preloader');
+    const appContainer = document.getElementById('app-container');
+    
+    setupApp();
+
+    setTimeout(() => {
+        if (preloader) {
+            preloader.style.opacity = '0';
+            preloader.addEventListener('transitionend', () => {
+                preloader.style.display = 'none';
+            });
+        }
+        if (appContainer) {
+            appContainer.style.visibility = 'visible';
+            appContainer.style.opacity = '1';
+        }
+    }, 2000); 
+};
