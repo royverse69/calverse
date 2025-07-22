@@ -425,8 +425,8 @@ function setupFeatureLogic() {
         const mealInput = url ? `URL: ${url}` : `Ingredients: ${ingredients}`;
 
         // --- Step 1: Fetch Nutrition Data ---
-        const nutritionPrompt = `Analyze the nutrition for the following meal: ${mealInput}. Return ONLY a JSON object with a single top-level key: "nutrition". The "nutrition" object must be a flat JSON object with the following keys: foodItem (use the meal description as the value), servingSize (e.g., "1 serving"), calories (as a single number, not an object), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for any unknown values.`;
-
+        const nutritionPrompt = `You are a nutrition calculator. Analyze the total combined nutrition for the following list of ingredients: "${mealInput}". Sum up all the values. Return ONLY a single JSON object with a key "nutrition". The value should be an object containing the aggregated nutritional values for the entire meal. The required keys are: foodItem (use a summary like "Combined Meal"), servingSize (e.g., "1 serving"), calories (number), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for unknown values. For example: { "nutrition": { "calories": 550, "protein": "30g", ... } }`;
+        
         const nutritionResult = await callGeminiApi(nutritionPrompt, 'meal');
         let nutritionData;
 
@@ -437,14 +437,14 @@ function setupFeatureLogic() {
                 
                 const parsedResult = JSON.parse(jsonStringMatch[0]);
 
-                if (!parsedResult || typeof parsedResult.nutrition !== 'object' || parsedResult.nutrition === null || Object.keys(parsedResult.nutrition).length === 0) {
-                     throw new Error("API response is missing valid 'nutrition' data.");
+                if (!parsedResult || typeof parsedResult.nutrition !== 'object' || parsedResult.nutrition === null || !parsedResult.nutrition.calories) {
+                     throw new Error("API response is missing valid 'nutrition' data or key fields like 'calories'.");
                 }
                 nutritionData = parsedResult.nutrition;
 
             } catch (e) {
                 console.error("Meal analysis error:", e);
-                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not process the meal's nutrition data. The format from the AI was unexpected. Please try a simpler query.</p>`;
+                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not process the meal's nutrition data. The format from the AI was unexpected. Please try rephrasing your ingredients.</p>`;
                 setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
                 return; 
             }
@@ -465,7 +465,7 @@ function setupFeatureLogic() {
 
         setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...'); // Update button text for the second step
 
-        const suggestionsPrompt = `Based on the following meal (${mealInput}), provide suggestions for taste and health improvements. Return ONLY a JSON object with a single top-level key "suggestions" which contains two string properties: "taste" and "health".`;
+        const suggestionsPrompt = `Based on the meal ingredients "${mealInput}", provide helpful suggestions. Return ONLY a single JSON object with a key "suggestions" which contains two string properties: "taste" and "health". For example: { "suggestions": { "taste": "A pinch of smoked paprika would be great.", "health": "Consider adding a side of steamed vegetables." } }`;
         const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
 
         if (suggestionsResult) {
