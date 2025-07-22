@@ -154,7 +154,7 @@ function renderAllPages() {
             <div class="space-y-4">
                 <input id="meal-url-input" type="text" placeholder="Paste a recipe URL" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
                 <div class="relative"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-card"></div></div><div class="relative flex justify-center"><span class="bg-card px-2 text-sm text-sub">OR</span></div></div>
-                <textarea id="meal-ingredients-input" placeholder="List ingredients and quantities one per line..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <textarea id="meal-ingredients-input" placeholder="List ingredients (one per line or comma-separated)..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
                 <button id="analyze-meal-btn" class="btn-primary w-full flex items-center justify-center"><i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i>Analyze Meal</button>
             </div>
             <div id="meal-output" class="mt-8"></div>
@@ -480,15 +480,18 @@ function setupFeatureLogic() {
         let originalMealInput;
 
         if (url) {
-            // If a URL is provided, we can't split it. We'll analyze it as a whole.
-            // This path remains for URL-based analysis, which might still be less reliable.
+            // If a URL is provided, we treat it as a single item for analysis.
             ingredientsList = [url];
             originalMealInput = `URL: ${url}`;
         } else if (ingredientsText) {
-            ingredientsList = ingredientsText.split('\n').map(i => i.trim()).filter(i => i.length > 0);
+            // Split by both newlines and commas, then flatten the array.
+            ingredientsList = ingredientsText
+                .split(/[\n,]+/) // Split by one or more newlines or commas
+                .map(item => item.trim()) // Trim whitespace from each item
+                .filter(item => item.length > 0); // Remove any empty items
             originalMealInput = `Ingredients: ${ingredientsText}`;
         } else {
-            return; // No input
+            return; // No input provided.
         }
 
         if (ingredientsList.length === 0) {
@@ -899,3 +902,4 @@ window.onload = () => {
             appContainer.style.opacity = '1';
         }
     }, 2000); 
+};
