@@ -154,7 +154,7 @@ function renderAllPages() {
             <div class="space-y-4">
                 <input id="meal-url-input" type="text" placeholder="Paste a recipe URL" class="input-field w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition">
                 <div class="relative"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-card"></div></div><div class="relative flex justify-center"><span class="bg-card px-2 text-sm text-sub">OR</span></div></div>
-                <textarea id="meal-ingredients-input" placeholder="List ingredients (one per line or comma-separated)..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
+                <textarea id="meal-ingredients-input" placeholder="List All Ingredients comma-separated  E.g 2oog oats,100ml milk,..." class="input-field w-full h-32 border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition"></textarea>
                 <button id="analyze-meal-btn" class="btn-primary w-full flex items-center justify-center"><i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i>Analyze Meal</button>
             </div>
             <div id="meal-output" class="mt-8"></div>
@@ -259,7 +259,7 @@ Because with the right information, making better health choices becomes easier 
                  <a href="#contact" class="settings-nav-item flex justify-between items-center p-4 bg-card border-card border rounded-lg hover:border-primary transition glass-card"><div class="flex items-center"><i data-lucide="mail" class="w-5 h-5 mr-4 text-sub"></i><span class="text-main">Contact Us</span></div><i data-lucide="chevron-right" class="w-5 h-5 text-sub"></i></a>
                  <a href="#faq" class="settings-nav-item flex justify-between items-center p-4 bg-card border-card border rounded-lg hover:border-primary transition glass-card"><div class="flex items-center"><i data-lucide="help-circle" class="w-5 h-5 mr-4 text-sub"></i><span class="text-main">FAQ</span></div><i data-lucide="chevron-right" class="w-5 h-5 text-sub"></i></a>
              </div>
-            <footer class="text-center mt-12 text-sub text-sm">Made with ❤️ by <a href="https://www.instagram.com/ashutosh8877" target="_blank" class="text-primary font-bold hover:underline">Ashutosh Roy</a></footer>
+            <footer class="text-center mt-12 text-sub text-sm">Made with ❤️ by <a href="https://www.instagram.com/4zion69/" target="_blank" class="text-primary font-bold hover:underline">Ashutosh Roy</a></footer>
         </div>`;
     
     document.getElementById('profile-close-btn').addEventListener('click', () => {
@@ -594,8 +594,8 @@ function setupFeatureLogic() {
             setLoadingState(btn, false, originalText);
         });
     };
-    setupRecipeButton('generate-recipe-btn', 'recipe-ingredients-input', (i) => `Create a healthy recipe using: ${i}. Be concise. Use markdown for formatting: '### Title', '### Ingredients', '### Instructions'. Use '*' for list items.`);
-    setupRecipeButton('solve-craving-btn', 'craving-input', (c) => `I'm craving ${c}. Suggest a healthy alternative recipe. Be concise and start directly with the recipe. Use markdown for formatting: '### Title', '### Why It\\'s Healthier', '### Ingredients', '### Instructions'. Use '*' for list items.`);
+    setupRecipeButton('generate-recipe-btn', 'recipe-ingredients-input', (i) => `Create a healthy indian recipe using: ${i}. Be concise. Use markdown for formatting: '### Title', '### Ingredients', '### Instructions'. Use '*' for list items.`);
+    setupRecipeButton('solve-craving-btn', 'craving-input', (c) => `I'm craving ${c}. Suggest a healthy alternative indian homemade recipe. Be concise and start directly with the recipe. Use markdown for formatting: '### Title', '### Why It\\'s Healthier', '### Ingredients', '### Instructions'. Use '*' for list items.`);
     
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
