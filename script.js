@@ -428,56 +428,78 @@ function setupFeatureLogic() {
         const nutritionPrompt = `Analyze the nutrition for the following meal: ${mealInput}. Return ONLY a JSON object with a single top-level key: "nutrition". The "nutrition" object must be a flat JSON object with the following keys: foodItem (use the meal description as the value), servingSize (e.g., "1 serving"), calories (as a single number, not an object), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for any unknown values.`;
 
         const nutritionResult = await callGeminiApi(nutritionPrompt, 'meal');
+        let nutritionData;
 
         if (nutritionResult) {
             try {
-                const nutritionData = JSON.parse(nutritionResult.match(/\{[\s\S]*\}/)[0]);
-                // Render the nutrition label first
-                mealOutput.innerHTML = renderNutritionLabel(nutritionData.nutrition, 'Total Meal Nutrition');
+                const jsonStringMatch = nutritionResult.match(/\{[\s\S]*\}/);
+                if (!jsonStringMatch) throw new Error("No JSON object found in API response.");
+                
+                const parsedResult = JSON.parse(jsonStringMatch[0]);
 
-                // --- Step 2: Fetch Suggestions ---
-                // Append a container for suggestions with a loading skeleton
-                const suggestionsContainer = document.createElement('div');
-                suggestionsContainer.id = 'suggestions-container';
-                suggestionsContainer.innerHTML = getSkeletonHTML('recipe'); // Re-using recipe skeleton for suggestions
-                mealOutput.appendChild(suggestionsContainer);
-
-                setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...'); // Update button text for the second step
-
-                const suggestionsPrompt = `Based on the following meal (${mealInput}), provide suggestions for taste and health improvements. Return ONLY a JSON object with a single top-level key "suggestions" which contains two string properties: "taste" and "health".`;
-                const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
-
-                if (suggestionsResult) {
-                     try {
-                        const suggestionsData = JSON.parse(suggestionsResult.match(/\{[\s\S]*\}/)[0]);
-                        const suggestionsHtml = `
-                            <div class="mt-8 bg-card p-6 rounded-xl border border-card glass-card">
-                                <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-primary"></i>AI Suggestions</h3>
-                                <div class="space-y-4">
-                                    <div>
-                                        <h4 class="font-bold text-primary">Taste Improvement:</h4>
-                                        <p class="text-sub">${suggestionsData.suggestions.taste}</p>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-green-400">Health Improvement:</h4>
-                                        <p class="text-sub">${suggestionsData.suggestions.health}</p>
-                                    </div>
-                                </div>
-                            </div>`;
-                        suggestionsContainer.innerHTML = suggestionsHtml;
-                        if (typeof lucide !== 'undefined') lucide.createIcons();
-                     } catch (e) {
-                        suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not parse suggestions.</p>`;
-                     }
-                } else {
-                    suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not retrieve suggestions.</p>`;
+                if (!parsedResult || typeof parsedResult.nutrition !== 'object' || parsedResult.nutrition === null || Object.keys(parsedResult.nutrition).length === 0) {
+                     throw new Error("API response is missing valid 'nutrition' data.");
                 }
+                nutritionData = parsedResult.nutrition;
 
             } catch (e) {
-                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not parse the meal's nutrition data.</p>`;
+                console.error("Meal analysis error:", e);
+                mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not process the meal's nutrition data. The format from the AI was unexpected. Please try a simpler query.</p>`;
+                setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
+                return; 
             }
         } else {
-            mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not analyze the meal's nutrition.</p>`;
+            mealOutput.innerHTML = `<p class="text-red-400 text-center">Could not analyze the meal's nutrition. The request timed out or failed.</p>`;
+            setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
+            return;
+        }
+        
+        // Render the nutrition label first if we have valid data
+        mealOutput.innerHTML = renderNutritionLabel(nutritionData, 'Total Meal Nutrition');
+
+        // --- Step 2: Fetch Suggestions ---
+        const suggestionsContainer = document.createElement('div');
+        suggestionsContainer.id = 'suggestions-container';
+        suggestionsContainer.innerHTML = getSkeletonHTML('recipe'); // Re-using recipe skeleton for suggestions
+        mealOutput.appendChild(suggestionsContainer);
+
+        setLoadingState(analyzeMealBtn, true, 'Getting Suggestions...'); // Update button text for the second step
+
+        const suggestionsPrompt = `Based on the following meal (${mealInput}), provide suggestions for taste and health improvements. Return ONLY a JSON object with a single top-level key "suggestions" which contains two string properties: "taste" and "health".`;
+        const suggestionsResult = await callGeminiApi(suggestionsPrompt, 'meal');
+
+        if (suggestionsResult) {
+             try {
+                const jsonStringMatch = suggestionsResult.match(/\{[\s\S]*\}/);
+                if (!jsonStringMatch) throw new Error("No JSON object found in suggestions response.");
+                const suggestionsData = JSON.parse(jsonStringMatch[0]);
+
+                if (!suggestionsData || typeof suggestionsData.suggestions !== 'object' || suggestionsData.suggestions === null) {
+                    throw new Error("Suggestions response is missing valid 'suggestions' data.");
+                }
+
+                const suggestionsHtml = `
+                    <div class="mt-8 bg-card p-6 rounded-xl border border-card glass-card">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center text-main"><i data-lucide="lightbulb" class="w-6 h-6 mr-3 text-primary"></i>AI Suggestions</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Taste Improvement:</h4>
+                                <p class="text-sub">${suggestionsData.suggestions.taste ?? 'No suggestions available.'}</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-green-400">Health Improvement:</h4>
+                                <p class="text-sub">${suggestionsData.suggestions.health ?? 'No suggestions available.'}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                suggestionsContainer.innerHTML = suggestionsHtml;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+             } catch (e) {
+                console.error("Suggestion parsing error:", e);
+                suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not parse suggestions.</p>`;
+             }
+        } else {
+            suggestionsContainer.innerHTML = `<p class="text-red-400 text-center mt-4">Could not retrieve suggestions.</p>`;
         }
 
         setLoadingState(analyzeMealBtn, false, `<i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Analyze Meal`);
@@ -565,7 +587,12 @@ const dailyValues = {
     vitaminD: 20
 };
 
-const renderNutritionLabel = (data) => {
+const renderNutritionLabel = (data, customTitle = null) => {
+    // Guard clause to ensure data is a valid object before rendering
+    if (!data || typeof data !== 'object') {
+        return `<div class="nutrition-label glass-card"><p class="text-red-400 text-center">No valid nutrition data was provided.</p></div>`;
+    }
+
     const getDV = (key, value) => {
         if (dailyValues[key] && parseFloat(value) > 0) {
             const dv = (parseFloat(value) / dailyValues[key]) * 100;
@@ -574,32 +601,34 @@ const renderNutritionLabel = (data) => {
         return '';
     };
 
+    const labelTitle = customTitle ?? data.foodItem ?? 'N/A';
+
     return `<div class="nutrition-label glass-card">
         <div class="header">
-            <h1 class="capitalize text-main">${data.foodItem||'N/A'}</h1>
-            <div class="text-sub">Serving Size ${data.servingSize||'N/A'}</div>
+            <h1 class="capitalize text-main">${labelTitle}</h1>
+            <div class="text-sub">Serving Size ${data.servingSize ?? 'N/A'}</div>
         </div>
         <div class="item">
             <span class="text-main">Calories</span> 
-            <span class="text-2xl font-bold text-main">${data.calories??'N/A'}</span>
+            <span class="text-2xl font-bold text-main">${data.calories ?? 'N/A'}</span>
         </div>
         <div class="item text-right text-sub text-sm font-bold">
              % Daily Value*
         </div>
-        <div class="item"><span class="text-main">Total Fat</span> <span><span class="text-main">${data.totalFat||'N/A'}</span> ${getDV('totalFat', data.totalFat)}</span></div>
-        <div class="item indent"><span class="text-sub">Saturated Fat</span> <span><span class="text-sub">${data.saturatedFat||'N/A'}</span> ${getDV('saturatedFat', data.saturatedFat)}</span></div>
-        <div class="item indent"><span class="text-sub">Trans Fat</span> <span class="text-sub">${data.transFat||'N/A'}</span></div>
-        <div class="item"><span class="text-main">Cholesterol</span> <span><span class="text-main">${data.cholesterol||'N/A'}</span> ${getDV('cholesterol', data.cholesterol)}</span></div>
-        <div class="item"><span class="text-main">Sodium</span> <span><span class="text-main">${data.sodium||'N/A'}</span> ${getDV('sodium', data.sodium)}</span></div>
-        <div class="item"><span class="text-main">Total Carbohydrate</span> <span><span class="text-main">${data.totalCarbohydrate||'N/A'}</span> ${getDV('totalCarbohydrate', data.totalCarbohydrate)}</span></div>
-        <div class="item indent"><span class="text-sub">Dietary Fiber</span> <span><span class="text-sub">${data.dietaryFiber||'N/A'}</span> ${getDV('dietaryFiber', data.dietaryFiber)}</span></div>
-        <div class="item indent"><span class="text-sub">Total Sugars</span> <span class="text-sub">${data.totalSugars||'N/A'}</span></div>
-        <div class="item"><span class="text-main">Protein</span> <span><span class="text-main">${data.protein||'N/A'}</span> ${getDV('protein', data.protein)}</span></div>
+        <div class="item"><span class="text-main">Total Fat</span> <span><span class="text-main">${data.totalFat ?? 'N/A'}</span> ${getDV('totalFat', data.totalFat)}</span></div>
+        <div class="item indent"><span class="text-sub">Saturated Fat</span> <span><span class="text-sub">${data.saturatedFat ?? 'N/A'}</span> ${getDV('saturatedFat', data.saturatedFat)}</span></div>
+        <div class="item indent"><span class="text-sub">Trans Fat</span> <span class="text-sub">${data.transFat ?? 'N/A'}</span></div>
+        <div class="item"><span class="text-main">Cholesterol</span> <span><span class="text-main">${data.cholesterol ?? 'N/A'}</span> ${getDV('cholesterol', data.cholesterol)}</span></div>
+        <div class="item"><span class="text-main">Sodium</span> <span><span class="text-main">${data.sodium ?? 'N/A'}</span> ${getDV('sodium', data.sodium)}</span></div>
+        <div class="item"><span class="text-main">Total Carbohydrate</span> <span><span class="text-main">${data.totalCarbohydrate ?? 'N/A'}</span> ${getDV('totalCarbohydrate', data.totalCarbohydrate)}</span></div>
+        <div class="item indent"><span class="text-sub">Dietary Fiber</span> <span><span class="text-sub">${data.dietaryFiber ?? 'N/A'}</span> ${getDV('dietaryFiber', data.dietaryFiber)}</span></div>
+        <div class="item indent"><span class="text-sub">Total Sugars</span> <span class="text-sub">${data.totalSugars ?? 'N/A'}</span></div>
+        <div class="item"><span class="text-main">Protein</span> <span><span class="text-main">${data.protein ?? 'N/A'}</span> ${getDV('protein', data.protein)}</span></div>
         <div class="footer">
-            <div class="item"><span class="text-main">Vitamin D</span> <span><span class="text-main">${data.vitaminD||'N/A'}</span> ${getDV('vitaminD', data.vitaminD)}</span></div>
-            <div class="item"><span class="text-main">Calcium</span> <span><span class="text-main">${data.calcium||'N/A'}</span> ${getDV('calcium', data.calcium)}</span></div>
-            <div class="item"><span class="text-main">Iron</span> <span><span class="text-main">${data.iron||'N/A'}</span> ${getDV('iron', data.iron)}</span></div>
-            <div class="item"><span class="text-main">Potassium</span> <span><span class="text-main">${data.potassium||'N/A'}</span> ${getDV('potassium', data.potassium)}</span></div>
+            <div class="item"><span class="text-main">Vitamin D</span> <span><span class="text-main">${data.vitaminD ?? 'N/A'}</span> ${getDV('vitaminD', data.vitaminD)}</span></div>
+            <div class="item"><span class="text-main">Calcium</span> <span><span class="text-main">${data.calcium ?? 'N/A'}</span> ${getDV('calcium', data.calcium)}</span></div>
+            <div class="item"><span class="text-main">Iron</span> <span><span class="text-main">${data.iron ?? 'N/A'}</span> ${getDV('iron', data.iron)}</span></div>
+            <div class="item"><span class="text-main">Potassium</span> <span><span class="text-main">${data.potassium ?? 'N/A'}</span> ${getDV('potassium', data.potassium)}</span></div>
         </div>
         <p class="text-xs text-sub mt-4">*The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
     </div>`;
