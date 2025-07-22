@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AuraFlex</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* --- Global Setup & Variables --- */
+        :root {
+            --bg-dark: #1E1E1E;
+            --card-bg: #2A2A2A;
+            --text-light: #F0F0F0;
+            --text-gray: #a0a0a0;
+            --accent-yellow: #FFD300;
+            --accent-blue: #3E92CC;
+            --border-color: #444;
+            --font-family: 'Poppins', sans-serif;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            animation: body-fade-in 0.8s ease-out;
+        }
+
+        @keyframes body-fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Back Button --- */
+        .back-button {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 1001;
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: var(--accent-yellow);
+            color: var(--bg-dark);
+            transform: scale(1.1);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 50%, #1e1e1e 100%);
+            background-size: 200% 200%;
+            animation: gradient-animation 10s ease infinite;
+        }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-content {
+            animation: slideInUp 0.8s ease-out;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-gray);
+            max-width: 600px;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 2rem;
+            color: var(--text-gray);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+        .section-title span {
+            color: var(--accent-yellow);
+        }
+        
+        /* --- Showcase / Parallax Section --- */
+        .showcase-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parallax-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            transform: scale(1.2);
+            filter: grayscale(100%) contrast(150%);
+        }
+        .parallax-element {
+            position: absolute;
+            color: var(--accent-blue);
+            font-size: 2rem;
+            opacity: 0.3;
+            filter: drop-shadow(0 0 10px var(--accent-blue));
+        }
+        .parallax-element.shape-1 { top: 20%; left: 15%; font-size: 3rem; }
+        .parallax-element.shape-2 { top: 70%; left: 10%; font-size: 1.5rem; }
+        .parallax-element.shape-3 { top: 15%; left: 80%; font-size: 2.5rem; }
+        .parallax-element.shape-4 { top: 80%; left: 75%; font-size: 2rem; }
+
+        .showcase-section .section-title {
+            z-index: 1;
+            position: relative;
+            background: rgba(30, 30, 30, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 1.5rem 2.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Mission Section --- */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .mission-icon {
+            text-align: center;
+            font-size: 5rem;
+            color: var(--accent-blue);
+            text-shadow: 0 0 25px rgba(62, 146, 204, 0.5);
+        }
+        .mission-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-gray);
+            text-align: justify;
+        }
+        .mission-text p:first-child {
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Story/Journey Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 1rem 2.5rem;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-dark);
+            border: 4px solid var(--accent-yellow);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item.left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 28px;
+            width: 0;
+            z-index: 1;
+            right: 20px;
+            border: medium solid var(--border-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--border-color);
+        }
+        .timeline-item.right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 28px;
+            width: 0;
+            z-index: 1;
+            left: 20px;
+            border: medium solid var(--border-color);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--border-color) transparent transparent;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: var(--border-radius);
+        }
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--accent-yellow);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            color: var(--text-gray);
+        }
+
+        /* --- Core Values --- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .value-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .value-card .icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .value-card:hover .icon {
+            color: var(--accent-yellow);
+            text-shadow: 0 0 15px var(--accent-yellow);
+        }
+        .value-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .value-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* --- Team Section --- */
+        .team-section {
+            background-color: var(--bg-dark);
+        }
+        .founder-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .founder-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .founder-name {
+            font-weight: 600;
+            color: var(--accent-yellow);
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            background: var(--bg-dark);
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-cta {
+            background: var(--accent-yellow);
+            color: var(--bg-dark);
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+        .btn-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 211, 0, 0.3);
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            padding: 4rem 0;
+            background: #191919; /* Slightly darker for contrast */
+            text-align: center;
+            color: var(--text-gray);
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+        .footer-subtitle {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem; /* Increased gap for better spacing */
+        }
+        .footer-social-icons a {
+            color: var(--text-gray);
+            font-size: 1.8rem; /* Increased icon size */
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .footer-social-icons a:hover {
+            color: var(--accent-yellow);
+            transform: translateY(-5px);
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (min-width: 768px) {
+            .mission-grid {
+                grid-template-columns: 150px 1fr;
+            }
+            .mission-icon {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .timeline::after {
+                left: 10px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 1rem;
+            }
+            .timeline-item.left, .timeline-item.right {
+                left: 0;
+            }
+            .timeline-item::after {
+                left: 0;
+            }
+            .timeline-item.right::after {
+                left: 0;
+            }
+            .timeline-item.left::before, .timeline-item.right::before {
+                left: 5px;
+                border-color: transparent var(--border-color) transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Driven by Purpose</h1>
+                <p>Where fitness meets precision.</p>
+            </div>
+            <a href="#showcase" class="scroll-indicator">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Showcase Section -->
+        <section id="showcase" class="section showcase-section">
+            <img src="aboutusimg.png" class="parallax-bg-img" data-speed="0.5" alt="Abstract background image" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/1E1E1E/444444?text=Image+Not+Found';">
+            <i class="fa-solid fa-plus parallax-element shape-1" data-speed="-2"></i>
+            <i class="fa-solid fa-circle-notch parallax-element shape-2" data-speed="2"></i>
+            <i class="fa-solid fa-square parallax-element shape-3" data-speed="1.5"></i>
+            <i class="fa-solid fa-triangle parallax-element shape-4" data-speed="-1"></i>
+            <h2 class="section-title">Powered by <span>Data</span></h2>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="section">
+            <div class="container">
+                <h2 class="section-title">Our <span>Mission</span></h2>
+                <div class="mission-grid">
+                    <div class="mission-icon">
+                        <i class="fa-solid fa-crosshairs"></i>
+                    </div>
+                    <div class="mission-text">
+                        <p>To empower every individual to take charge of their health by providing powerful tools for tracking workouts, calories, macros, and exploring one of the largest food & nutrition databases — all in a simple, clean, and intelligent interface.</p>
+                        <p>We believe that fitness isn’t one-size-fits-all. That’s why we focus on customized progress, whether you're losing fat, gaining muscle, or simply eating better.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="section">
+            <div class="container">
+                <h2 class="section-title">Our <span>Journey</span></h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>The Spark</h3>
+                            <p>"Why is it so hard to track what we eat and how we move — in one seamless place?" This simple question was the start of everything.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>The Vision</h3>
+                            <p>From frustration came the vision to build a tool that doesn't just record — it guides. A place for everyone to stay consistent and see real results.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>The Difference</h3>
+                            <p>We focused on what matters: a detailed food database, AI-driven insights, and a minimal, distraction-free UI to help you focus on your goals.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>The Future</h3>
+                            <p>We’re building more than a product — we’re building a fitness culture driven by data and powered by purpose, with community and education features coming soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section id="values" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Core <span>Values</span></h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                        <h3>Precision</h3>
+                        <p>Everything we build is backed by science and verified data.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h3>Discipline</h3>
+                        <p>Progress comes from showing up — and we’re here to help you do it every day.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3>Simplicity</h3>
+                        <p>Fitness tools don’t need to be complex. We make everything easy and actionable.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Accountability</h3>
+                        <p>We value your trust. Your health data stays secure, always.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section team-section">
+            <div class="container">
+                 <h2 class="section-title">From the <span>Founder</span></h2>
+                 <div class="founder-card">
+                    <p class="founder-quote">"We built this for people like you. People who want to improve — and are serious about it."</p>
+                    <p class="founder-name">— Ashutosh Roy, Founder</p>
+                 </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2>We're just getting started…</h2>
+                <a href="#" class="btn-cta">Explore Our Work</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <h2 class="footer-title">Join Our Community</h2>
+            <p class="footer-subtitle">Stay connected with us on social media for updates, tips, and more.</p>
+            <div class="footer-social-icons">
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Scroll Animations ---
+            var timelineItems = document.querySelectorAll('.timeline-item');
+            var parallaxElements = document.querySelectorAll('.parallax-element, .parallax-bg-img');
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            timelineItems.forEach(function(item) {
+                observer.observe(item);
+            });
+
+            // --- Parallax Effect ---
+            window.addEventListener('scroll', function() {
+                var scrollY = window.scrollY;
+                parallaxElements.forEach(function(el) {
+                    var speed = parseFloat(el.dataset.speed);
+                    var yPos = -(scrollY * speed / 10);
+                    // This logic assumes the element doesn't have other transforms.
+                    // For more complex scenarios, matrix transformations might be needed.
+                    el.style.transform = 'translateY(' + yPos + 'px)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

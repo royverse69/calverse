@@ -1,0 +1,13 @@
+# This file configures your Netlify site's build and redirect settings.
+# Place this file in the root of your project.
+
+[build]
+  # This tells Netlify where to find your serverless functions.
+  functions = "netlify/functions/"
+
+[[redirects]]
+  # This rule creates a proxy. 
+  # Any request from your frontend to "/api/" will be redirected to the corresponding serverless function.
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
