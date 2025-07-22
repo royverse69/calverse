@@ -419,7 +419,7 @@ function setupFeatureLogic() {
         setLoadingState(analyzeMealBtn, true, 'Analyzing...');
         mealOutput.innerHTML = getSkeletonHTML('meal');
         const mealInput = url ? `URL: ${url}` : `Ingredients: ${ingredients}`;
-        const prompt = `Analyze this meal: ${mealInput}. Return ONLY a JSON object with two top-level keys: "nutrition" (containing a detailed nutrition facts object) and "suggestions" (an object with "taste" and "health" string properties).`;
+        const prompt = `Analyze the nutrition for the following meal: ${mealInput}. Return ONLY a JSON object with two top-level keys: "nutrition" and "suggestions". The "nutrition" object must be a flat JSON object with the following keys: foodItem (use the meal description as the value), servingSize (e.g., "1 serving"), calories (as a single number, not an object), totalFat, saturatedFat, transFat, cholesterol, sodium, totalCarbohydrate, dietaryFiber, totalSugars, protein, vitaminD, calcium, iron, and potassium. Use "N/A" for any unknown values. The "suggestions" object should contain two string properties: "taste" for taste improvements and "health" for health improvements.`;
         const result = await callGeminiApi(prompt, 'meal');
         if (result) {
             try {
@@ -443,13 +443,13 @@ function setupFeatureLogic() {
             setLoadingState(btn, true, 'Generating...');
             recipeOutput.innerHTML = getSkeletonHTML('recipe');
             const result = await callGeminiApi(promptFn(input));
-            if (result) { recipeOutput.innerHTML = `<div class="bg-card border-card border p-6 rounded-xl ai-content glass-card">${formatAiText(result)}</div>`; } 
+            if (result) { recipeOutput.innerHTML = `<div class="bg-card border-card border p-4 md:p-6 rounded-xl ai-content glass-card">${formatAiText(result)}</div>`; } 
             else { recipeOutput.innerHTML = `<p class="text-red-400 text-center">Could not generate a response. Please try again.</p>`; }
             setLoadingState(btn, false, originalText);
         });
     };
-    setupRecipeButton('generate-recipe-btn', 'recipe-ingredients-input', (i) => `Create a healthy recipe using: ${i}. Use markdown: '### Title', '### Ingredients', '### Instructions'. Use '*' for lists.`);
-    setupRecipeButton('solve-craving-btn', 'craving-input', (c) => `I'm craving ${c}. Suggest a healthy alternative recipe. Use markdown: '### Title', '### Why Healthier', '### Ingredients', '### Instructions'. Use '*' for lists.`);
+    setupRecipeButton('generate-recipe-btn', 'recipe-ingredients-input', (i) => `Create a healthy recipe using: ${i}. Be concise. Use markdown for formatting: '### Title', '### Ingredients', '### Instructions'. Use '*' for list items.`);
+    setupRecipeButton('solve-craving-btn', 'craving-input', (c) => `I'm craving ${c}. Suggest a healthy alternative recipe. Be concise and start directly with the recipe. Use markdown for formatting: '### Title', '### Why It\\'s Healthier', '### Ingredients', '### Instructions'. Use '*' for list items.`);
     
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
